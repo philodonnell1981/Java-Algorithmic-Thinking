@@ -1,0 +1,45 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /* In a classroom, there are 20 students. Write a Java program that prompts the teacher to enter the grades (0 – 100) 
+    that students received in a math test and then displays the highest grade as well as the number of students that 
+    got an “A” (that is, 90 to 100). Moreover, the program must validate data input. 
+    Given values must be within the range 0 to 100.
+    */
+    
+    int i, count;
+    double grade, highest;
+    
+    highest = -1;
+    count = 0;
+    
+    for (i = 1; i <= 20; i++) { // 20 students to score
+      do {
+        System.out.println("Enter grade for student " + i + ": ");
+        grade = Double.parseDouble(cin.nextLine());
+      } while (grade < 0 || grade > 100); // data validation
+      
+      if (grade >= 90) { // is student an A?
+        count++;
+      }
+      if (grade > highest)  { // is it the best grade?
+        highest = grade;
+      }
+    }
+    
+    System.out.println("The number of student achieving an A is: " + count);
+    System.out.println("The highest score is: " + highest);
+   
+  }
+}
+   
+  
+

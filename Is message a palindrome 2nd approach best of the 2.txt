@@ -1,0 +1,47 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    int i, middle_pos, j;
+    String message, message_clean, letter, left_letter, right_letter;
+    boolean palindrome;
+    
+    System.out.print("Enter a message: ");
+    message = cin.nextLine().toLowerCase();
+    
+    message_clean = message.replace(" ", "").replace(",", "").replace(".", "").replace("?", "").replace("!", "");
+    
+    
+    
+    j = message_clean.length() - 1;
+    middle_pos = (int) (j / 2);
+    palindrome = true;
+    
+    for (i = 0; i <= middle_pos; i++) {
+      left_letter = "" + message_clean.charAt(i);
+      right_letter = "" + message_clean.charAt(j);
+      if (!left_letter.equals(right_letter)) {
+        palindrome = false;
+        break;
+      }
+      j--;
+    }
+    
+    if (palindrome)  {
+      System.out.println("Message is a palindrome");
+    }
+    else {
+      System.out.println("Not a palindrome");
+    }
+    
+  }
+}
+   
+  

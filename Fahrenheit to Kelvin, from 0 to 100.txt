@@ -1,0 +1,30 @@
+/* Write a Java program that displays all degrees Fahrenheit from 0 to 100 and their equivalent degrees Kelvin. 
+Use an increment value of 0.5. It is given that
+*/
+
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    double f, K;
+    int i;
+    
+    for (f = 0; f <= 100; f += 0.5) {
+      K = (f + 459.68) / 1.8;
+      System.out.println(f + " degrees Fahrenheit = " + K + " Kelvin");
+    }
+    
+    
+    
+  }
+}
+   
+  
+

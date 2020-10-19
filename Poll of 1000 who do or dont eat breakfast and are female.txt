@@ -1,0 +1,35 @@
+/*
+A public opinion polling company asks 1000 citizens if they eat breakfast in the morning. 
+Write a Java program that prompts the citizens to enter their gender (M for Male, F for Female) 
+and their answer to the question (Y for Yes, N for No, S for Sometimes), and then calculates 
+and displays the number of citizens that gave “Yes” as an answer, as well as the percentage of 
+women among the citizens that gave “No” as an answer. Using a loop control structure, the program 
+must also validate data input and accept only values M or F for gender and Y, N, or S for answer.
+*/
+
+String gender, reply;
+    int i, yeses, f_no;
+    
+    yeses = 0;
+    f_no = 0;
+    
+    for (i = 1; i <= CITIZENS; i++)  {
+      do {
+        System.out.println("Enter your gender: ");
+        gender = cin.nextLine().toLowerCase();
+      } while (!gender.equals("m") && !gender.equals("f"));
+      
+      do {
+        System.out.println("Do you eat breakfast?");
+        reply = cin.nextLine().toLowerCase();
+      } while (!reply.equals("y") && !reply.equals("n") && !reply.equals("s"));
+      
+      if (reply.equals("y")) {
+        yeses++;
+      }
+      if (gender.equals("f") && reply.equals("n")) {
+        f_no++;
+      }
+    }
+    
+    System.out.println("Yes': " + yeses + "Female No's %" + f_no / CITIZENS * 100);

@@ -1,0 +1,42 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    
+    /*
+    There is a myth about a poor man who invented chess. The King of India was so pleased with that new game that he offered to give 
+    the poor man anything he wished for. The poor but wise man told his King that he would like one grain of rice for the first 
+    square of the board, two grains for the second, four grains for the third and so on, doubled for each of the 64 squares of the 
+    game board. This seemed to the King to be a modest request, so he ordered his servants to bring the rice. 
+    Write a Java program that calculates and displays how many grains of rice, and how many pounds of rice, will be on the chessboard 
+    in the end. Suppose that one pound of rice contains   about 30,000 grains of rice.
+    */ 
+    
+    int squares;
+    double lb, rice, total_rice;
+    
+    rice = 1;
+    total_rice = 1;
+    
+    for (squares = 2; squares <= 64; squares++) {
+      rice *= 2;
+      total_rice += rice;
+    }
+    
+    lb = total_rice / 30000;
+    
+    System.out.println("On a full chess board there will be " + total_rice + " grains of rice");
+    System.out.println("at a weight of " + lb + " pounds");
+    
+    
+    
+  }
+}
+

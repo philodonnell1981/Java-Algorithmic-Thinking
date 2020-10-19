@@ -1,0 +1,78 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /*
+    Exercise 30.6-4 Is the Message a Palindrome? A palindrome is a word or sentence that reads 
+    the same both backwards and forward. (You may recall from Exercise 23.5-3 that a number can 
+    also be a palindrome!) Write a Java program that prompts the user to enter a word or sentence 
+    and then displays a message stating whether or not the given word or sentence is a palindrome. 
+    Following are some palindrome messages. 
+    ► Anna ► A nut for a jar of tuna. 
+    ► Dennis and Edna sinned. 
+    ► Murder for a jar of red rum. 
+    ► Borrow or rob? 
+    ► Are we not drawn onward, we few, drawn onward to new era?
+    */
+    
+    int i, j, middle_pos;
+    String message, message_clean, letter, left_letter, right_letter;
+    boolean palindrome;
+    
+    System.out.println("Enter a message: ");
+    message = cin.nextLine().toLowerCase(); 
+    
+    // add only letters and numbers to message_clean
+    message_clean = "";
+    for (i = 0; i <= message.length() - 1; i++) {
+      letter = "" + message.charAt(i);
+      if (!letter.equals(" ") && !letter.equals(",") 
+          && !letter.equals(".") && !letter.equals(":") 
+          && !letter.equals("-") && !letter.equals("?")) {
+        message_clean += letter;
+      }
+    }
+    
+    // last character of message_clean
+    j = message_clean.length() - 1;    
+    
+    // middle position of message_clean
+    middle_pos = (int) (j / 2);    
+    
+    // to begin assume msg is palindrome
+    palindrome = true;
+    
+    
+    // compare letter one by by one
+    for (i = 0; i <= middle_pos; i++) {
+      left_letter = "" + message_clean.charAt(i);
+      right_letter = "" + message_clean.charAt(j);
+      if (!left_letter.equals(right_letter)) {
+        palindrome = false;
+      }
+      j--;
+    }
+   
+    // IF VARIABLE PALINDROME IS STILL TRUE
+    if (palindrome)  {
+      System.out.println("Message is a palindrome");
+    }
+    else {
+      System.out.println("Not a palindrome");
+    }
+    
+    
+    
+    
+  }
+}
+   
+  
+

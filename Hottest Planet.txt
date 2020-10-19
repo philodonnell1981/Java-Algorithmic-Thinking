@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    /* Write a Java program that prompts the user to repeatedly enter the names and the average temperatures of planets from space, 
+    until the word “STOP” (used as a name) is entered. In the end, the program must display the name of the hottest planet. 
+    Moreover, since − 459.67o (on the Fahrenheit scale) is the lowest temperature possible (it is called absolute zero), 
+    the program must also validate data input (using   a loop control structure) and display an error message when the user 
+    enters temperature values lower than absolute zero.
+    */
+    
+   String planet, m_name;
+   double t, max_t;
+   
+   max_t = -460;
+   m_name = "";
+   
+   System.out.println("Enter the name of a planet: ");
+   planet = cin.nextLine();
+   while (!planet.toUpperCase().equals("STOP"))  { // if user doesnt enter "stop" move onto asking for temp
+     System.out.print("Enter it's temperature: ");
+     t = (Double.parseDouble(cin.nextLine()));
+     while (t < 459.67) { // validation of temperature
+       System.out.print("Error!  Please enter a valid temperature: ");
+       t = Double.parseDouble(cin.nextLine());
+     }
+     // now temp is a valid entry...
+     if (t > max_t) {
+       max_t = t;
+       m_name = planet;
+     }
+     System.out.println("Enter the name of a planet: ");
+     planet = cin.nextLine();
+   }
+    
+    if (max_t != -460) {
+      System.out.println("The hottest planet is: " + m_name);
+    }
+    else {
+      System.out.println("Nothing entered");
+    }
+    
+    
+   
+  }
+}
+   
+  
