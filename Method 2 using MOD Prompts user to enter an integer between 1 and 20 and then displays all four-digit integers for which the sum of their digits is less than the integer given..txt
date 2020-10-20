@@ -1,0 +1,47 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /* 
+    Write a Java program that prompts the user to enter an integer between 
+    1 and 20 and then displays all four-digit integers for which the sum of 
+    their digits is less than the integer given. 
+    For example, if the user enters 15, the value 9301 is such a number, 
+    since 9 + 3 + 0 + 1 < 15
+    */
+    
+    int x, i, r, d1, d2, d3, d4;
+    
+    System.out.println("Enter an integer (1-20): ");
+    x = Integer.parseInt(cin.nextLine());
+    
+    for (i = 1000; i <= 9999; i++)  {
+      d4 = i % 10;    // eg 5678 MOD 10 = 8
+      r = (int) (i / 10); // eg 5678 DIV 10 = 567
+      d3 = r % 10; // eg 567 MOD 10 = 7
+      r = (int) r / 10; // 567 DIV 10 = 56
+      d2 = r % 10;
+      d1 = (int) (r / 10);
+      
+      if (d4 + d3 + d2 + d1 < x)  {
+        System.out.println(i);
+      }
+          
+    }
+   
+    
+    
+    
+    
+    
+  }
+}
+   
+ 
