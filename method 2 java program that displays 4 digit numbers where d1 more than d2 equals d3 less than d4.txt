@@ -1,0 +1,41 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+   /*
+    Write a Java program that displays all four-digit integers that 
+    satisfy all of the following conditions: 
+    ► the number's first digit is greater than its second digit 
+    ► the number's second digit is equal to its third digit 
+    ► the number's third digit is smaller than its fourth digit 
+    For example, the values 7559, 3112, and 9889 are such numbers.
+    */
+    
+    int i, d1, d2, d3, d4, r;
+   
+    for (i = 1000; i <= 9999; i++) {
+      d4 = i % 10;
+      r = (int) (i / 10);
+      d3 = r % 10;
+      r = (int) (r / 10);
+      d2 = r % 10;
+      d1 = (int) (r / 10);
+      
+      if (d1 > d2 && d2 == d3 && d3 < d4)  {
+        System.out.println(i);
+      }
+    }
+    
+    
+    
+    
+    
+  }
+}
