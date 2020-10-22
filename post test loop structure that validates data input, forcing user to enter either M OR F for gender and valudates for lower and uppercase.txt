@@ -1,0 +1,32 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+   /*
+    * Using a loop control structure, write the code fragment 
+    * that validates data input, forcing the user to enter a 
+    * valid gender (M for Male, F for Female). 
+    * Moreover, it must validate correctly both for 
+    * lowercase and uppercase letters.  
+    */
+    
+   String gender;
+   
+   do {
+     System.out.println("Enter gender (M or F): ");
+     gender = cin.nextLine().toUpperCase();
+   }  while (!gender.equals("M") && !gender.equals("F"));
+    
+    
+    
+  }
+}
+   
+  

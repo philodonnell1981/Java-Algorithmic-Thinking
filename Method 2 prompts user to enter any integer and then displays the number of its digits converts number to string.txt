@@ -1,0 +1,33 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+   /*
+    * Write a Java program that prompts the 
+    * user to enter an integer and then displays 
+    * the number of its digits.  
+    */
+    
+   int x, count;
+   
+   System.out.println("Enter any integer: ");
+   x = Integer.parseInt(cin.nextLine());
+   
+   count = ("" + Math.abs(x)).length();
+   
+   System.out.println(count);
+    
+    
+    
+    
+  }
+}
+   
+  
