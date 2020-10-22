@@ -1,0 +1,52 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user to 
+     * enter a non-negative number and then calculates 
+     * its square root. Using a loop control structure, 
+     * the program must also validate data input and 
+     * display an error message when the user enters 
+     * any negative values. Additionally, the user has 
+     * a maximum number of two retries. If the user enters 
+     * more than three negative values, a message “Dude, you are dumb!” 
+     * must be displayed and the program execution must end.
+     */
+    
+    int count;
+    double x, y;
+    
+    System.out.println("Enter a positive number");
+    x = Double.parseDouble(cin.nextLine());
+    count = 1;
+    
+    while (x < 0)  {
+      System.out.println("Error: Enter a positive number");
+      x = Double.parseDouble(cin.nextLine());
+      
+      if (x < 0)  {
+        count++;
+        if (count == 3) {
+          break;
+        }
+      }
+    }
+    if (count < 3)  {
+      y = Math.sqrt(x);
+      System.out.println(y);
+    }
+    else {
+      System.out.println("Dude you are Dumb!");
+    }    
+  }
+}
+   
+  
