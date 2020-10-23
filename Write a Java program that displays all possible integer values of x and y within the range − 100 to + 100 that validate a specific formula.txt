@@ -1,0 +1,33 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that displays all possible integer 
+     * values of x and y within the range − 100 to + 100 that 
+     * validate the following formula: 5x   +   3y2   =   0
+     */
+
+
+    int x, y;
+    
+    for (x = -100; x <= 100; x++) {
+      for (y = -100; y <= 100; y++) {
+        if (5 * x + 3 * Math.pow(y, 2) == 0)  {
+          System.out.println("x: " + x + " y: " + y);
+        }
+      }
+    }
+      
+    
+        
+  }
+}
+
