@@ -1,0 +1,47 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that prompts the user to enter the length 
+      of the radius of a circle and then calculates and displays its area. 
+      The program must iterate as many times as the user wishes. 
+      At the end of each area calculation, the program must ask the user 
+      if he or she wishes to calculate the area of another circle. 
+      If the answer is “yes” the program must repeat; it must end otherwise. 
+      Make your program accept the answer in all possible forms such as 
+      “yes”, “YES”, “Yes”, or even “YeS”. 
+      Moreover, using a loop control structure, the program must validate 
+      data input and display an error message when the user enters any 
+      non-positive value for Radius. Hint: Use the Math.PI constant to get the value of π.
+     */
+    
+    double radius, area;
+    String reply;
+    
+   do {
+     System.out.println("Enter the length of the radius of a circle: ");
+     radius = Double.parseDouble(cin.nextLine());
+     while (radius <= 0) {
+       System.out.println("Error: Enter the length of the radius of a circle: ");
+       radius = Double.parseDouble(cin.nextLine());
+     }
+     area = Math.PI * Math.pow(radius, 2);
+     
+     System.out.println("The area of the circle is: " + area);
+     System.out.println("Would you like to calculate the area of another circle?");
+     reply = cin.nextLine().toLowerCase();
+   } while (reply.equals("yes"));
+      
+    
+        
+  }
+}
+
