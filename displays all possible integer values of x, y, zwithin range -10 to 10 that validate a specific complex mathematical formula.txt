@@ -1,0 +1,34 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that displays all possible integer 
+     * values of x, y, and z within the range − 10 to + 10 that 
+     * validate the following formula:
+     */
+
+    
+    
+    int x, y, z;
+    
+    for (x = -10; x <= 10; x++)  {
+      for (y = -10; y <= 10; y++) {
+        for (z = -10; z <= 10; z++) {
+          if ((x + y) / 2 + 3 * Math.pow(z, 2) / (x + 3 * y + 45) == x / 3) {
+            System.out.println("x = " + x + ", y = " + y + ", z = " + z);
+          }
+        }
+      }
+    }
+    
+        
+  }
+}
