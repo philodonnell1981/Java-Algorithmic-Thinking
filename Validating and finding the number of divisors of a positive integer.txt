@@ -1,0 +1,41 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    /*Write a Java program that lets the user 
+     * enter a positive integer and then displays 
+     * the total number of its divisors. Using a 
+     * Loop control structure the program 
+     * must also validate that the user enters a 
+     * positive integer an display an error message if
+     * a non-positive integer is entered*/
+    
+    
+    int x, divisors, i;
+    
+    divisors = 2;
+    
+    System.out.println("Enter a number: ");
+    x = Integer.parseInt(cin.nextLine());
+    
+    while (x <= 0)  {
+      System.out.println("Error: Enter a positive number: ");
+      x = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (i = 2; i <= (int) (x / 2); i++) {
+      if (x % i == 0)  {
+        divisors++;
+      }
+    }
+    
+    System.out.println(divisors);
+        
+  }
+}

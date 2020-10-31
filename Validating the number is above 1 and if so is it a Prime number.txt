@@ -1,0 +1,44 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that prompts the user to enter 
+     * an integer greater than 1 and then displays a message 
+     * indicating if this number is a prime. If the user
+     * enters a number <= 1 an error message must be shown.     * 
+     */
+    
+    int x, i, divisors;
+    
+    System.out.println("Enter an integer: ");
+    x = Integer.parseInt(cin.nextLine());
+    
+    while (x <=1)  {
+      System.out.println("Error: Enter an integer greater than 1: ");
+      x = Integer.parseInt(cin.nextLine());
+    }
+    
+    divisors = 2;
+    
+    for (i = 2; i <= (int) (x / 2); i++)  {
+      if (x % i == 0)  {
+        divisors++;
+        break;
+      }
+    }
+      if (divisors == 2)  {
+        System.out.println("Prime");
+      }
+      else {
+        System.out.println("Not Prime");
+      }
+  }
+}
