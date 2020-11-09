@@ -1,0 +1,59 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  
+  public static void main(String[] args) {
+    
+    /* Write a Java program that prompts the user to enter two positive integers and 
+     * then displays all prime integers between them. Using a loop control structure, 
+     * the program must also validate data input and display an error message when the 
+     * user enters a value less than + 2. Hint: To make your Java program operate correctly, 
+     * independent of which integer given is the lowest, you can swap their values 
+     * (if necessary) so that they are always in the proper order.
+     */
+    
+    int n1, n2, n_spare, divisors, i, x;
+    
+    System.out.println("Enter a number above 1: ");
+    n1 = Integer.parseInt(cin.nextLine());
+    while (n1 < 2) {
+      System.out.println("Error: Enter a number above 1: ");
+      n1 = Integer.parseInt(cin.nextLine());
+    }
+    
+    System.out.println("Enter a 2nd number above 1: ");
+    n2 = Integer.parseInt(cin.nextLine());
+    while (n2 < 2) {
+      System.out.println("Error: Enter a number above 1: ");
+      n2 = Integer.parseInt(cin.nextLine());
+    }
+    
+    if (n2 < n1)  {
+      n_spare = n1;
+      n1 = n2;
+      n2 = n_spare;
+    }
+    
+    for (x = n1; x <= n2; x++) {
+      divisors = 2;
+      i = 2;
+      while (i <= (int) (x / 2)  & divisors == 2)  {
+        if (x % i == 0)  {
+          divisors++;
+        }
+        i++;
+      }
+      if (divisors == 2)  {
+        System.out.println("Number " + x + " is prime");
+      }
+    }
+    
+  }
+}
+   
+  
