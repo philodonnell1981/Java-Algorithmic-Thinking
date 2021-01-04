@@ -1,0 +1,23 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that displays the following sequence
+     *  of numbers: − 1, 1, − 2, 2, − 3, 3, − 4, 4, … − 100, 100
+     */
+   int i;
+   
+   for (i = 1; i <= 100; i++)  {
+     System.out.println(-i + "\n" + i);
+   }
+   
+    
+}
+}
