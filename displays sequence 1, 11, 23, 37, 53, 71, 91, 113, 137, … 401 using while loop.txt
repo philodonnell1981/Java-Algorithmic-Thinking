@@ -1,0 +1,29 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+  
+    /*
+     * Write a Java program that displays the following sequence 
+     * of numbers: 1, 11, 23, 37, 53, 71, 91, 113, 137, … 401
+     */
+    
+   int i, offset;
+   
+   i = 1;
+   offset = 10;
+   
+   while (i <= 401)  {
+     System.out.println(i);
+     i += offset;
+     offset += 2;
+   }
+   
+    
+}
+}
