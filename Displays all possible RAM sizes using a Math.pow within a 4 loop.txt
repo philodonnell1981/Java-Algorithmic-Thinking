@@ -1,0 +1,26 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+   /* Write a Java program that displays all possible RAM sizes 
+    * between 1 byte and 1GByte, such as 1, 2, 4, 8, 16, 32, 64, 128, 
+    * and so on. Hint: 1GByte equals 2 to the power of 30 bytes, 
+    * or 1073741824 bytes
+    */
+    
+    int x;
+    
+    for (x = 1; x <= 30; x++) {
+      System.out.println(Math.pow(2, x));
+    }
+    
+   
+    
+}
+}
