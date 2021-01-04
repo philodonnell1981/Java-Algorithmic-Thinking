@@ -1,0 +1,59 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+   /* Write a Java program that prompts the user to enter two positive 
+    four-digit integers and then displays all integers between them 
+    that are palindromes. Using a loop control.
+    structure, the program must also validate data input and display 
+    an error message when the user enters any numbers other than 
+    four-digit ones. Hint: To make your Java program operate correctly, 
+    independent of which integer given is the lowest, you can swap their 
+    values (if necessary) so that they are always in the proper order.
+    */
+    
+    int a, b, c, x, x1, x2, x3, x4, r;
+    
+    System.out.println("Enter a 4 digit integer: ");
+    a = Integer.parseInt(cin.nextLine());
+    while (a < 1000 || a > 9999)  {
+      System.out.println("Error! Enter a 4 digit integer: ");
+      a = Integer.parseInt(cin.nextLine());
+    }
+    System.out.println("Enter a 2nd 4 digit integer: ");
+    b = Integer.parseInt(cin.nextLine());
+    while (b < 1000 || b > 9999)  {
+      System.out.println("Error! Enter a 4 digit integer: ");
+       b = Integer.parseInt(cin.nextLine());
+    }
+    if (a > b)  {
+      c = a;
+      a = b;
+      b = c;
+    }
+    
+   for (x = a; x <= b; x++) {
+     x4 = x % 10;  // identify 4th digit
+     r = (int) (x / 10); // remove 4th digit
+     x3 = r % 10; // isolate last digit
+     r = (int) (r / 10);
+     x2 = r % 10;
+     x1 = (int)(r / 10);
+     
+     if (x1 == x4 && x2 == x3)  {
+       System.out.println(x);
+     }
+     
+   }
+
+    
+   
+    
+}
+}
