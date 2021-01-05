@@ -1,0 +1,29 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that displays the following 
+     * sequence of numbers: 1, 11, 111, 1111, 11111, 
+     * … 11111111
+     */
+    
+    int i;
+    String value;
+    
+    value = "1";
+    for (i = 1; i <= 8; i++) {
+      System.out.println(value);
+      value += "1";
+    }
+    
+   
+    
+}
+}
