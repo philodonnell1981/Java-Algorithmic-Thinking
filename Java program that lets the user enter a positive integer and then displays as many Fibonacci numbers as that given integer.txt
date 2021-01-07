@@ -1,0 +1,40 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * The Fibonacci sequence is a series of numbers in the 
+     * following sequence: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, … 
+     * By definition, the first two numbers are 1 and 1 and 
+     * each subsequent number is the sum of the previous two. 
+     * Write a Java program that lets the user enter a positive 
+     * integer and then displays as many Fibonacci numbers as 
+     * that given integer.
+     */
+  
+    
+    int a, i, fib, fib_prev, fib_prev_prev;
+    
+    System.out.println("Enter a positive integer: ");
+    a = Integer.parseInt(cin.nextLine());
+    
+    fib = 1;
+    fib_prev = 1;
+    fib_prev_prev = 0;
+    
+    for (i = 1; i <= a; i++) {
+      System.out.println(fib);
+      fib = fib_prev + fib_prev_prev;
+      fib_prev_prev = fib_prev;
+      fib_prev = fib;
+    }
+   
+    
+}
+}
