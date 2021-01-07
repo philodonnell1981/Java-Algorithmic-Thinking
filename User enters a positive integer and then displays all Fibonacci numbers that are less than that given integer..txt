@@ -1,0 +1,36 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 
+     * a positive integer and then displays all Fibonacci 
+     * numbers that are less than that given integer.
+     */
+   
+    int a, i, fib, fib_prev, fib_prev_prev;
+    
+    System.out.println("Enter a positive integer: ");
+    a = Integer.parseInt(cin.nextLine());
+    
+    fib = 1;
+    fib_prev = 1;
+    fib_prev_prev = 0;
+    
+    while (fib < a) {
+      System.out.println(fib);
+      fib = fib_prev + fib_prev_prev;
+      fib_prev_prev = fib_prev;
+      fib_prev = fib;
+      }
+      
+    
+    
+}
+}
