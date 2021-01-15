@@ -1,0 +1,72 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+  /* Suppose that the letter A corresponds to the number 1, 
+   * the letter B corresponds to the number 2, and so on. 
+   * Write a Java program that prompts the user to enter 
+   * two integers and then displays all alphabet letters 
+   * that exist between them. For example, if the user 
+   * enters 3 and 6, the program must display C, D, E, F. 
+   * Using a loop control structure, the program must also 
+   * validate data input and display individual error 
+   * messages when the user enters any negative, or any 
+   * value greater than 26. Hint: To make your Java program 
+   * operate correctly, independent of which integer given 
+   * is the lowest, you can swap their values (if necessary) 
+   * so that they are always in the proper order.
+   */
+
+    int a, b, c, i;
+    boolean failure;
+    
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    
+    do {
+      System.out.println("Enter an integer between 1 & 26: ");
+      a = Integer.parseInt(cin.nextLine());
+      
+      failure = false;
+      if (a < 1)  {
+        System.out.println("Please enter only positive Integers!");
+        failure = true;
+      }
+      else if (a > 26) {
+        System.out.println("Please enter an integer below or equal to 26!");
+        failure = true;
+      } 
+    } while (failure);
+    
+    do {
+      System.out.println("Enter an integer between 1 & 26: ");
+      b = Integer.parseInt(cin.nextLine());
+      
+      failure = false;
+      if (b < 1) {
+        System.out.println("Please enter a positve integer!");
+        failure = true;
+      }
+      else if (b > 26) {
+        System.out.println("Please enter a positive number below or equal to 26!");
+        failure = true;
+      }
+    } while (failure);
+    
+    if (a > b) {
+      c = a;
+      a = b;
+      b = c;
+    }
+    
+    for (i = a; i <= b; i++) {
+      System.out.print(alphabet.charAt(i - 1));
+    }
+    
+}
+}
