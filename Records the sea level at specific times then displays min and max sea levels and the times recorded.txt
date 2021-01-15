@@ -1,0 +1,70 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /* A scientist needs a software application to record 
+     * the level of the sea based on values recorded at specific 
+     * times (HH:MM), in order to extract some useful information. 
+     * Write a Java program that lets the scientist enter the level 
+     * of the sea, the hour, and the minutes, repeatedly until the 
+     * value of 9999 (used as a sea level) is entered. 
+     * Then, the program must display the highest and the lowest 
+     * sea levels as well as the hour and the minutes at which 
+     * these levels were recorded.
+     */
+
+    int hour, max_hour, max_mins, min_hour, min_mins, minutes;
+    double level, maximum, minimum;
+    
+    System.out.println("Enter the level of the sea: ");
+    level = Double.parseDouble(cin.nextLine());
+    if (level != 9999) {
+      System.out.println("Enter the hour: ");
+      hour = Integer.parseInt(cin.nextLine());
+      System.out.println("Enter the minute: ");
+      minutes = Integer.parseInt(cin.nextLine());
+      
+      maximum = level;
+      max_hour = hour;
+      max_mins = minutes;
+      
+      minimum = level;
+      min_hour = hour;
+      min_mins = minutes;
+      
+      System.out.println("Enter the sea level: ");
+      level = Double.parseDouble(cin.nextLine());
+      while (level != 9999) {
+        System.out.println("Enter the hour: ");
+        hour = Integer.parseInt(cin.nextLine());
+        System.out.println("Enter the minute: ");
+        minutes = Integer.parseInt(cin.nextLine());
+        
+        if (level > maximum) {
+          maximum = level;
+          max_hour = hour;
+          max_mins = minutes;
+        }
+        if (level < minimum) {
+          minimum = level;
+          min_hour = hour;
+          min_mins = minutes;
+        }
+        System.out.println("Enter the sea level: ");
+        level = Double.parseDouble(cin.nextLine());
+      }
+      System.out.println("The highest sea level was " + maximum + " recorded at " + max_hour + ":" + max_mins);
+      System.out.println("The lowest sea level was " + minimum + " recorded at " + min_hour + ":" + min_mins);
+    }
+    
+
+    
+    
+}
+}
