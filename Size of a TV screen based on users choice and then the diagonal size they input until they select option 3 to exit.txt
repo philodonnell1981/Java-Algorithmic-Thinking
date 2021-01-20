@@ -1,0 +1,68 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * The size of a TV screen always refers to its diagonal measurement. 
+     * For example, a 40-inch TV screen is 40 inches diagonally, from one 
+     * corner on top to the other corner on bottom. The old TV screens had 
+     * a width-to-height aspect ratio of 4: 3, which means that for every 3 
+     * inches in TV screen height, there were 4 inches in TV screen width. 
+     * Today, most TV screens have a width-to-height aspect ratio of 16: 9, 
+     * which means that for every 9 inches in TV screen height there are 
+     * 16 inches in TV screen width. Using these aspect ratios and the 
+     * Pythagorean Theorem, you can easily determine that: 
+     * for all 4: 3 TVs 
+     * Width = Diagonal × 0.8 
+     * Height = Diagonal × 0.6 
+     * 
+     * for all 16: 9 TVs 
+     * Width = Diagonal × 0.87 
+     * Height = Diagonal × 0.49 
+     * 
+     * Write a Java program that displays the following menu: 
+     * 4/ 3 TV Screen 
+     * 16/ 9 TV Screen 
+     * Exit 
+     * 
+     * and prompts the user to enter a choice as well as the diagonal screen 
+     * size in inches. Then, the Java program must display the width and the 
+     * height of the TV screen. This process must continue repeatedly, until 
+     * the user selects choice 3 (Exit) from the menu.
+     */
+    
+    int choice, diagonal;
+    
+    while (true) {
+      System.out.println("1. 4 / 3 TV Screen");
+      System.out.println("2. 16 / 9 TV Screen");
+      System.out.println("3. Exit");
+      System.out.println("Enter a choice: ");
+      choice = Integer.parseInt(cin.nextLine());
+      
+      if (choice == 3) {
+        break;
+      }
+      else if (choice == 1) { 
+          System.out.println("Enter the diagonal screen size in inches: ");
+          diagonal = Integer.parseInt(cin.nextLine());
+          System.out.println("Width = " + diagonal * 0.8);
+          System.out.println("Height = " + diagonal * 0.6);
+      }
+      else if (choice == 2) {
+        System.out.println("Enter the diagonal screen size in inches: ");
+        diagonal = Integer.parseInt(cin.nextLine());
+        System.out.println("Width = " + diagonal * 0.87);
+        System.out.println("Height = " + diagonal * 0.49);
+      }
+    }
+    
+   
+  }
+}
