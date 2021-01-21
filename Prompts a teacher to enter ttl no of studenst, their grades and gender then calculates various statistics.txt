@@ -1,0 +1,103 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts a teacher to enter 
+     * the total number of students, their grades, and their gender (M for Male, F for Female), 
+     * and then calculates and displays all of the following: 
+     * a.the average value of those who got an “A” (90 - 100) 
+     * b.the average value of those who got a “B” (80 - 89) 
+     * c.the average value of boys who got an “A” (90 - 100) 
+     * d.the total number of girls that got less than “B” 
+     * e.the highest and lowest grade 
+     * f.the average grade of the whole class 
+     * 
+     * Add all necessary checks to make the program satisfy the property of definiteness. 
+     * Moreover, using a loop control structure, the program must validate data input 
+     * and display an error message when the teacher enters any of the following: 
+     * 
+     * non-positive values for total number of students 
+     * negatives, or values greater than 100 for student grades
+     * values other than M or F for gender
+     */
+    
+    int total_students, i, grade, a_students_total_grades, a_students, b_students_total_grades, b_students; 
+    int a_boy_students_total_grades, a_boys_students, cedf_girls, high_grade, low_grade, whole_class_total_grades;
+    String gender;
+    
+    high_grade = -1;
+    low_grade =  101;
+    a_students_total_grades = 0;
+    a_students = 0;
+    a_boys_students = 0;
+    b_students_total_grades = 0;
+    b_students = 0;
+    a_boy_students_total_grades = 0;
+    cedf_girls = 0;
+    whole_class_total_grades = 0;
+    
+    
+    
+    System.out.println("Enter the total number of students: ");
+    total_students = Integer.parseInt(cin.nextLine());
+    while (total_students < 1) {
+      System.out.println("Error: Enter a positive number for  the total number of students: ");
+      total_students = Integer.parseInt(cin.nextLine());
+    }
+
+    for (i = 1; i <= total_students; i++) {
+      System.out.println("Enter the grade of student number " + i + ": ");
+      grade = Integer.parseInt(cin.nextLine());
+      while (grade < 0 || grade > 100) {
+        System.out.println("Error: Enter a grade between 0-100 for student number " + i + ": ");
+        grade = Integer.parseInt(cin.nextLine());
+      }      
+      
+      System.out.println("Enter the gender of student number " + i + " (M or F): ");
+      gender = cin.nextLine().toUpperCase();
+      while (!gender.equals("M") && !gender.equals("F")) {
+        System.out.println("Error Enter a valid gender for student number " + i + "(M or F): ");
+        gender = cin.nextLine().toUpperCase();
+      }
+      
+      if (gender.equals("M") && grade >= 90) {
+        a_boy_students_total_grades += grade;
+        a_boys_students++;
+      }
+      else if (gender.equals("F") && grade < 80) {
+        cedf_girls++;
+      }
+      whole_class_total_grades += grade;
+      
+      if (grade > high_grade) {
+        high_grade = grade;
+      }
+      if (grade < low_grade) {
+        low_grade = grade;
+      }
+      if (grade >= 90) {
+       a_students_total_grades += grade;
+       a_students++;
+      }
+      else if (grade >= 80 && grade <= 89) {
+        b_students_total_grades += grade;
+        b_students++;
+      }
+    }
+    
+    System.out.println("a. The average value of those who got an A is: " + a_students_total_grades / a_students);
+    System.out.println("b. The average value of those who got a B is: " + b_students_total_grades / b_students);
+    System.out.println("c. The average value of boys who got an A is: " + a_boy_students_total_grades / a_boys_students);
+    System.out.println("d. The total number of girls who got less than a B grade: " + cedf_girls);
+    System.out.println("e. The highest grade: " + high_grade + " & the lowest grade: " + low_grade);
+    System.out.println("f. The average grade of the whole class: " + whole_class_total_grades / total_students);
+   
+  }
+}
