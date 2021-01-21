@@ -1,0 +1,71 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that calculates and displays the 
+     * discount that a customer receives based on the amount 
+     * of his or her order, according to the following table:
+     *     Amount     Discount
+     * $ 0 < amount < $ 20 - 0% 
+     * $ 20 <= amount < $ 50 - 3% 
+     * $ 50 <= amount < $ 100 - 5% 
+     * $ 100 <= amount  - 10% 
+     * 
+     * At the end of each discount calculation, the program must ask the 
+     * user if he or she wishes to calculate the discount of another amount. 
+     * If the answer is “yes”, the program must repeat; it must end otherwise. 
+     * Make your program accept the answer in all possible forms such as 
+     * “yes”, “YES”, “Yes”, or even “YeS”. 
+     * Moreover, using a loop control structure the program must validate 
+     * data input and display an error message when the user enters any 
+     * non-positive value for amount.
+     */
+    
+    double amount, discount;
+    String reply;
+    
+    do {
+      System.out.println("Enter the item cost in GBP: ");
+      amount = Double.parseDouble(cin.nextLine());
+      while (amount < 0) {
+        System.out.println("Error Enter a positive value for the item cost in GBP: ");
+        amount = Double.parseDouble(cin.nextLine());
+      }
+      
+      if (amount < 20) {
+        discount = 0;
+      }
+      else if (amount < 50) {
+        discount = 3;
+      }
+      else if (amount < 100) {
+        discount = 5;
+      }
+      else {
+        discount = 10;
+      }
+      
+      System.out.println("Discount: " + discount + "%");
+      System.out.println("Amount to pay including discount: £" + (amount - amount * discount / 100));
+      
+      System.out.println("Would you like to calculate the discount amount of another item? ");
+      reply = cin.nextLine().toUpperCase();
+      
+    } while (reply.equals("YES"));
+   
+  }
+}
