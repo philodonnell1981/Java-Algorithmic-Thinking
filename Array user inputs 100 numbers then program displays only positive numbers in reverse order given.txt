@@ -1,0 +1,33 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  static final double taxes = 0.25;
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 100 numbers 
+     * and then displays only the positive ones in the exact reverse 
+     * of the order in which they were given.
+     */
+    
+    int i;
+    int[] numbers = new int[100];
+    
+    for (i = 0; i <= 99; i++) {
+      numbers[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (i = 99; i >= 0; i--) {
+      if (numbers[i] > 0) {
+        System.out.println(numbers[i]);
+      }
+    }
+    
+    
+  }
+}
