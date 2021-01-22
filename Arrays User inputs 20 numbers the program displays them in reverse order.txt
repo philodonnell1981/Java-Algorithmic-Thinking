@@ -1,0 +1,30 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  static final double taxes = 0.25;
+  
+  static Scanner cin = new Scanner (System.in);
+
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 20 words. 
+     * The program then displays them in the exact reverse of 
+     * the order in which they were given.
+     */
+   int i;
+   String[] words = new String[20];
+   
+   for (i = 0; i <= 19; i++) {
+     words[i] = cin.nextLine();
+   }
+   
+   for (i = 19; i >= 0; i--) {
+     System.out.println(words[i]);
+   }
+    
+    
+  }
+}
