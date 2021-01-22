@@ -1,0 +1,35 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  static final double taxes = 0.25;
+  
+  static Scanner cin = new Scanner (System.in);
+
+  static final int ELEMENTS = 20;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user to enter 20 numbers into an array. 
+     * It then displays a message only when their average value is less than 10.
+     */
+    
+    int i;
+    double total = 0, average;
+    
+    double[] values = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS -1; i++) {
+      System.out.print("Enter a value: ");
+      values[i] = Double.parseDouble(cin.nextLine());
+      total += values[i];
+    }
+    
+    average = total / ELEMENTS;
+    if (average < 10) {
+      System.out.println("Average value is less than 10");
+    }
+    
+  }
+}
