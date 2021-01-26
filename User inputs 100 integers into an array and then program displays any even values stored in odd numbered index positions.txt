@@ -1,0 +1,33 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  static final int ELEMENTS = 100;
+  public static void main(String[] args) {
+    
+   /*Write a Java program that lets the user enter 
+    * 100 integers into an array and then displays 
+    * any even values that are stored in odd– numbered 
+    * index positions.
+    */
+    
+    int i;
+    int[] numbers = new int[ELEMENTS];
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.println("Enter a valid integer into index position " + i + ": ");
+      numbers[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (i = 1; i <= ELEMENTS - 1; i += 2) {
+      if (numbers[i] % 2 == 0) {
+        System.out.println(numbers[i]);
+      }
+    }
+    
+  }
+}
