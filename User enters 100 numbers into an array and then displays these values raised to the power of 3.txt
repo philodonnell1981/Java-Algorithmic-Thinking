@@ -1,0 +1,34 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 100;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 100 numbers 
+     * in an array and then displays these values raised to the 
+     * power of three.
+     */
+    
+    int i;
+    double[] numbers = new double[100];
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      numbers[i] = Integer.parseInt(cin.nextLine());
+    }
+   
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.println(Math.pow(numbers[i], 3));
+    }
+    
+    
+   
+    
+  }
+}
