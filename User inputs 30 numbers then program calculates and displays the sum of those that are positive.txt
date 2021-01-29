@@ -1,0 +1,38 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 30;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 
+     * 30 numbers in an array and then calculates and 
+     * displays the sum of those that are positive.
+     */
+    
+    int i;
+    double sum = 0;
+    
+    double[] numbers = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      numbers[i] = Double.parseDouble(cin.nextLine());
+      if (numbers[i] > 0) {
+        sum += numbers[i];
+      }
+    }
+    
+    System.out.println(sum);
+    
+    
+   
+    
+   
+    
+  }
+}
