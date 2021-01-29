@@ -1,0 +1,39 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 80;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 80 numbers 
+     * in an array. Then, the program must raise the array values 
+     * to the power of two, and finally display them in the exact 
+     * reverse of the order in which they were given.
+     */
+    
+    int i;
+    
+    double[] numbers = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      numbers[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      numbers[i] = Math.pow(numbers[i], 2);
+    }
+    
+    for (i = ELEMENTS - 1; i >= 0; i--) {
+      System.out.println(numbers[i]);
+    }
+    
+    
+   
+    
+  }
+}
