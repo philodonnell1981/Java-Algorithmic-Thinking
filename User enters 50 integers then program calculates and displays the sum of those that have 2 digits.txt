@@ -1,0 +1,39 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 50;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user enter 
+     * 50 integers in an array and then calculates and 
+     * displays the sum of those that have two digits.
+     */
+    
+    int i, sum;
+    
+    
+    int[] numbers = new int[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      numbers[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    sum = 0;    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (numbers[i] >= 10 && numbers[i] <= 99) {
+        sum += numbers[i];
+      }
+    }
+   
+    System.out.println(sum);
+    
+   
+    
+  }
+}
