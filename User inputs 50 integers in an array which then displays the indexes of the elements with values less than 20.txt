@@ -1,0 +1,33 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 50;
+  
+  public static void main(String[] args) {
+   
+   /* Write a Java program that prompts the user to 
+    * enter 50 integer values in an array. It then 
+    * displays the indexes of the elements that contain 
+    * values lower than 20.
+    */
+    
+    int i;
+    int[] number = new int[ELEMENTS];
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      number[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (number[i] < 20) {
+        System.out.println(i + ": " + number[i]); 
+      }
+    } 
+
+  }
+}
