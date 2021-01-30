@@ -1,0 +1,44 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 40;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that lets the user 
+     * enter 40 numbers in an array and then calculates 
+     * and displays the sum of the positive numbers and 
+     * the sum of the negative ones.
+     */
+    
+    int i;
+    double total_pos, total_neg;
+    
+    double[] number = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      number[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    total_pos = 0;
+    total_neg = 0;
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (number[i] > 0) {
+        total_pos += number[i];
+      }
+      else if (number[i] < 0) {
+        total_neg += number[i];
+      }
+    }
+   
+    System.out.println(total_pos + ", " + total_neg);
+    
+   
+    
+  }
+}
