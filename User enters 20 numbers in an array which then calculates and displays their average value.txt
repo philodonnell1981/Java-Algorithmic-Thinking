@@ -1,0 +1,38 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 20;
+  
+  public static void main(String[] args) {
+   
+   /*
+    * Write a Java program that lets the user enter 
+    * 20 numbers in an array and then calculates and 
+    * displays their average value.
+    */
+   
+    int i; 
+    double total = 0, average;
+    
+    double[] number = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      number[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      total += number[i];
+    }
+    
+    average = total / ELEMENTS;
+    
+    System.out.println(average);
+
+    
+    
+  }
+}
