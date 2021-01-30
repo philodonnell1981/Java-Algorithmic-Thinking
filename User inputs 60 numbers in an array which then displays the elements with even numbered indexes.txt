@@ -1,0 +1,41 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 60;
+  
+  public static void main(String[] args) {
+   
+   /*
+    * Write a Java program that prompts the user 
+    * to enter 60 numeric values in an array. It 
+    * then displays the elements with even-numbered 
+    * indexes (that is, indexes 0, 2, 4, 6, and so on).
+    */
+    
+    int i;
+    double[] number = new double[ELEMENTS];
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      number[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (i % 2 == 0) {
+        System.out.println(number[i]);
+      }
+    }
+    
+
+    
+    
+
+ 
+    
+    
+  }
+}
