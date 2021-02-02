@@ -1,0 +1,36 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user to 
+     * enter an integer N and then creates and displays 
+     * the following array of N elements. Assume that 
+     * the user enters an integer greater than 1
+     * a = 1, 4, 9 ... N squared
+     */
+    
+    int i, N;
+    
+    System.out.println("Enter an integer greater than 1: ");
+    N = Integer.parseInt(cin.nextLine());
+    
+    int[] a = new int[N]; 
+    for (i = 1; i <= N; i++) {
+      a[i - 1] = (int)Math.pow(i, 2);
+    }
+    
+    for (i = 0; i <= N - 1; i++) {
+      System.out.println(a[i]);
+    }
+     
+    
+    
+  }
+}
