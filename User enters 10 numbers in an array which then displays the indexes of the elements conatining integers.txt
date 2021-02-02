@@ -1,0 +1,38 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 10;
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user to 
+     * enter 10 numeric values in an array and then 
+     * displays the indexes of the elements that contain 
+     * integers.
+     */
+    
+    int i;
+    
+    double[] a = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.println("Enter a number value: ");
+      a[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (a[i] == (int)a[i])  {
+        System.out.println(i);
+      }
+    }
+    
+    
+    
+     
+    
+    
+  }
+}
