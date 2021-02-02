@@ -1,0 +1,28 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   
+  static final int ELEMENTS = 100;
+  
+  public static void main(String[] args) {
+   
+   /*
+    * Write code fragment in Java that creates the 
+    * following array of 100 elements: a = 1, 2, 3 ... 100
+    */
+    
+    int i;
+    int[] a = new int[ELEMENTS];
+    
+    for (i = 0; i <= ELEMENTS - 1; i ++) {
+      a[i] = i + 1;
+    }
+ 
+    
+    
+  }
+}
