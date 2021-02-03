@@ -1,0 +1,40 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  static final int WORDS = 40;
+  
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user 
+     * to enter 40 words in an array and then displays 
+     * those that contain the letter “w” at least twice.
+     */
+    
+    int count, i, j;
+    
+    String[] a = new String[WORDS];
+    for (i = 0; i <= WORDS - 1; i++) {
+      a[i] = cin.nextLine();
+    }
+    
+    for (i = 0; i <= WORDS - 1; i++) {
+      count = 0;
+      for (j = 0; j <= a[i].length() - 1; j++) { // check each character of each index of WORDS
+        if (a[i].substring(j, j + 1).equals("w")) { // check one char at a time
+          count++;
+        }
+      }
+      if (count >= 2) {
+        System.out.println(a[i]);
+      }
+    }
+    
+    
+  }
+}
