@@ -1,0 +1,36 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  final static int ROWS = 5;
+  final static int COLUMNS = 7;
+    
+  public static void main(String[] args) {
+   
+    /*
+     * Write a Java program that prompts the user 
+     * to enter numeric values in a 5 × 7 array and 
+     * then displays the indexes of the elements that 
+     * contain reals.
+     */
+    int i, j;
+    
+    double[][] a = new double[ROWS][COLUMNS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLUMNS - 1; j++) {
+        System.out.print("Enter a value for element " + i + ", " + j + ": ");
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLUMNS - 1; j++) {
+        if ((int)a[i][j] != a[i][j]) { // check if the element is a real
+          System.out.println("a real found at position " + i + ", " + j);
+        }
+      }
+    }
+  }
+}
