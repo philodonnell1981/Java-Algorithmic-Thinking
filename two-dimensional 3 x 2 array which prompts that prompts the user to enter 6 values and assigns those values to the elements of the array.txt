@@ -1,0 +1,32 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  final static int ROWS = 3;
+  final static int COLUMNS = 2;
+    
+  public static void main(String[] args) {
+   
+    /*
+     * Create a two-dimensional 3 x 2 array which prompts 
+     * that prompts the user to enter 6 values and assigns 
+     * those values to the elements of the array
+     */
+    
+   int i, j;
+   
+   String[][] names = new String [ROWS][COLUMNS];
+   for(i = 0; i <= 2; i++) {
+     for(j = 0; j <= 1; j++) {
+       System.out.println("Enter a name for Row " + i + ", Column " + j + ": ");
+       names[i][j] = cin.nextLine();
+     }
+   }
+    
+    
+    
+  }
+}
