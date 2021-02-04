@@ -1,0 +1,39 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  final static int N = 10;
+    
+  public static void main(String[] args) {
+   
+/*
+ * Approach 2 - only 10 iterations:
+ * Write a Java program that lets the user enter 
+ * numeric values into a 10 × 10 array and then 
+ * calculates the sum of the elements of its main 
+ * diagonal.
+ */
+  int i, j, k;
+  double total;
+  
+  double[][] a = new double[N][N];
+  for (i = 0; i <= N - 1; i++) {
+    for (j = 0; j <= N - 1; j++) {
+      a[i][j] = Double.parseDouble(cin.nextLine());
+    }
+  }
+  
+  total = 0;
+  for (k = 0; k <= N - 1; k++) {
+    total += a[k][k]; // only iterates indexes of the same row and column number
+  }
+  
+  System.out.println(total);
+ 
+    
+    
+  }
+}
