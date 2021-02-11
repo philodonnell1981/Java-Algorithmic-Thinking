@@ -1,0 +1,39 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 10;
+  static final int COLS = 15;
+  public static void main(String[] args) {
+    
+    /* 
+     * Write a Java program that lets the user 
+     * enter integer values in a 10 × 15 array 
+     * and then displays the indexes of the elements 
+     * that contain odd numbers.
+     */
+    
+    int i, j;
+    
+    int[][] values = new int[ROWS][COLS];
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        values[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        if (values[i][j] % 2 == 1) { // would != 0 be be better?
+          System.out.println("Index " + i + ", " + j + " contains an odd number.");
+        }
+      }
+    }
+    
+  }
+}
