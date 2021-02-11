@@ -1,0 +1,42 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 12;
+  static final int COLS = 8;
+  
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that lets the user enter 
+     * numeric values in a 12 × 8 array and then 
+     * calculates and displays the sum of the elements 
+     * that have even column indexes and odd row indexes.
+     */
+    
+    int i, j;
+    double total;
+    
+    double[][] a = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    total = 0;
+    for (i = 1; i <= ROWS - 1; i += 2) {
+      for (j = 0; j <= COLS - 1; j += 2) {
+        total += a[i][j]; // calculates the sum of the elements with odd rows and even indexes
+      }
+    }
+    
+    System.out.println(total);
+    
+    
+  }
+}
