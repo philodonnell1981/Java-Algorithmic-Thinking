@@ -1,0 +1,35 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 10;
+  static final int COLS = 6;
+  public static void main(String[] args) {
+    
+    /* 
+     * Write a Java program that lets the user enter 
+     * numeric values in a 10 × 6 array and then displays 
+     * the elements of the columns with even-numbered 
+     * indexes (that is, column indexes 0, 2, and 4).
+     */
+    int i, j;
+    double[][] a = new double[ROWS][COLS];
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j += 2) {
+        System.out.println(a[i][j]);
+      }
+    }
+    
+  }
+}
