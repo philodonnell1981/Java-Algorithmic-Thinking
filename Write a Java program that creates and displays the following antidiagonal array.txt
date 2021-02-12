@@ -1,0 +1,52 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int N = 5;
+    
+  public static void main(String[] args) {
+    
+    
+    /*
+     * Write a Java program that creates and displays the following array:
+     * 0 11 11 11 5
+     * 11 0 11 5 88
+     * 11 11 0 88 88
+     * 11 5 88 0 88
+     * 5 88 88 88 0
+     */
+    
+    int i, j;
+    
+    int[][] a= new int[N][N];
+    for (i = 0; i <= N - 1; i++) {
+      for (j = 0; j <= N - 1; j++) {
+        if (i == j) {
+          a[i][j] = 0;
+        }
+        else if (i == N - j - 1) {
+          a[i][j] = 5;
+        }
+        else if (i > N - j - 1) {
+          a[i][j] = 88;
+        }
+        else {
+          a[i][j] = 11;
+        }
+      }
+    }
+    for (i = 0; i <= N - 1; i++) {
+      for (j = 0; j <= N - 1; j++) {
+        System.out.print(a[i][j] + "\t");      
+       }
+      System.out.println();
+      }
+    
+    
+    
+  }
+}
