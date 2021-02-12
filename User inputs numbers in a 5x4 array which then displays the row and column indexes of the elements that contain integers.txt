@@ -1,0 +1,40 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 5;
+  static final int COLS = 4;
+    
+  public static void main(String[] args) {
+    
+    
+    /*
+     * Write a Java program that lets the user 
+     * enter numeric values in a 5 × 4 array and 
+     * then displays the row and column indexes 
+     * of the elements that contain integers.
+     */
+    
+    int i, j;
+    
+    double[][] a = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        if ((int)a[i][j] == a[i][j]) { // is the reverse better even though it makes no difference?
+          System.out.println(i + ", " + j);
+        }
+      }
+    }
+    
+  }
+}
