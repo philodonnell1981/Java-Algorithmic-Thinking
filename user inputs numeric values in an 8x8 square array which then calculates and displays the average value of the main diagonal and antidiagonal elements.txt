@@ -1,0 +1,41 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ELEMENTS = 8;
+    
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that lets the user enter 
+     * numeric values in an 8 × 8 square array and 
+     * then calculates the average value of the elements 
+     * of its main diagonal and the average value of 
+     * the elements of its antidiagonal. 
+     * Try to calculate both average values within 
+     * the same loop control structure.    
+     */
+    
+    int i, j, k;
+    double ttl_diag, ttl_antidiag;
+    
+    double[][] a = new double[ELEMENTS][ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      for (j = 0; j <= ELEMENTS - 1; j++) {
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+   
+    ttl_diag = 0;
+    ttl_antidiag = 0;
+    for (k = 0; k <= ELEMENTS - 1; k++) {
+      ttl_diag += a[k][k];
+      ttl_antidiag += a[k][ELEMENTS - k - 1];
+    }
+    System.out.println("Average of diagonal: " + ttl_diag / ELEMENTS + ", Average of anti-diagonal: " + ttl_antidiag / ELEMENTS);
+  }
+}
