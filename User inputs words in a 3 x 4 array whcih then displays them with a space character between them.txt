@@ -1,0 +1,39 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 3;
+  static final int COLS = 4;
+    
+  public static void main(String[] args) {
+    
+    
+    /* 
+     * Write a Java program that lets the user enter 
+     * words in a 3 × 4 array and then displays them 
+     * with a space character between them.
+     */
+    
+    int i, j;
+
+     String[][] a = new String[ROWS][COLS];
+     for (i = 0; i <= ROWS - 1; i++) {
+       for (j = 0; j <= COLS - 1; j++) {
+         a[i][j] = cin.nextLine();
+       }
+     }
+     
+     for (i = 0; i <= ROWS - 1; i++) {
+       for (j = 0; j <= COLS - 1; j++) {
+         System.out.print(a[i][j] + " ");
+       }
+     }
+    
+    
+    
+  }
+}
