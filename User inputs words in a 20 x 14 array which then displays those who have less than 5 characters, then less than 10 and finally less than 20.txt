@@ -1,0 +1,48 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int ROWS = 3;
+  static final int COLS = 2;
+    
+  public static void main(String[] args) {
+    
+    
+    /* 
+     * Write a Java program that lets the user enter 
+     * words in a 20 × 14 array and displays those 
+     * that have less than 5 characters, then those 
+     * that have less than 10 characters, and finally 
+     * those that have less than 20 characters. Assume 
+     * that the user enters only words with less than 
+     * 20 characters. 
+     */
+    
+    int i, j, k;
+    
+    String[][] a = new String[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        a[i][j] = cin.nextLine();
+      }
+    }
+    
+    int[] lengthLimits = {0, 5, 10, 20};
+        
+    for (k = 1; k <= 3; k++) {
+      for (i = 0; i <= ROWS - 1; i++) {
+        for (j = 0; j <= COLS - 1; j++) {
+          if (a[i][j].length() >= lengthLimits[k - 1] && a[i][j].length() < lengthLimits[k]) {
+            System.out.println(a[i][j]);
+          }
+        }
+      }
+    }
+    
+    
+  }
+}
