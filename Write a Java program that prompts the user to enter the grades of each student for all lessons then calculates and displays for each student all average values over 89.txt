@@ -1,0 +1,51 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int STUDENTS = 20;
+  static final int LESSONS = 10;
+    
+  public static void main(String[] args) {
+    
+    /*
+     * There are 20 students and each one of them 
+     * has received his or her grades for 10 lessons. 
+     * Write a Java program that prompts the user to 
+     * enter the grades of each student for all lessons 
+     * and then calculates and displays, for each student, 
+     * all average values that are greater than 89.
+     */
+    
+    int i, j;
+    
+    int[][] grades = new int[STUDENTS][LESSONS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      System.out.println("For student No. " + (i + 1) + "...");
+      for (j = 0; j <= LESSONS - 1; j++) {
+        System.out.print("enter grade for lesson No. " + (j + 1) + ": ");
+      }
+    }
+    
+    //create array average.  Iterate through rows
+    double[] average= new double[STUDENTS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      average[i] = 0;
+      for (j = 0; j <= LESSONS - 1; j++) {
+        average[i] += grades[i][j];
+      }
+      average[i] /= LESSONS;
+    }
+    
+    //DISPLAY ALL AVERAGE VALUES THAT ARE GREATER THAN 89
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      if (average[i] > 89) {
+        System.out.println(average[i]);
+      }
+    }
+    
+  }
+}
