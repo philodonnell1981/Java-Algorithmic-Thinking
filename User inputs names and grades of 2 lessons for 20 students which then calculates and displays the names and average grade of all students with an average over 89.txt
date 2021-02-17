@@ -1,0 +1,57 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int STUDENTS = 3;
+     
+  public static void main(String[] args) {
+    
+    /*
+     * There are 20 students and each one of them has 
+     * received his or her grades for two lessons. 
+     * Write a Java program that prompts the user to 
+     * enter the name and the grades of each student 
+     * for all lessons. It then calculates and displays 
+     * the names of all students who have an average 
+     * grade greater than 89.
+     */
+    
+    int i, total;
+    double average;
+    
+    
+    String[] names = new String[STUDENTS];
+    int[] grades1 = new int[STUDENTS];
+    int[] grades2 = new int[STUDENTS];
+    
+    for(i = 0; i <= STUDENTS - 1; i++) {
+      System.out.println("Enter the name of student No. " + (i + 1) + ": ");
+      names[i] = cin.nextLine();
+      
+      System.out.println("Enter Student No. " + (i + 1) + "'s grade for lesson No. 1: ");
+        grades1[i] = Integer.parseInt(cin.nextLine());
+        
+        System.out.println("Enter Student No. " + (i + 1) + "'s grade for lesson No. 2: ");
+        grades2[i] = Integer.parseInt(cin.nextLine());      
+    }
+    
+    /* calculate the average of each student and if over 89
+     * display their name and grades.
+     */
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      total = grades1[i] + grades2[i];
+      average = total / 2.0;
+      if (average > 89) {
+        System.out.println(names[i] + " achieved an average grade of " + average + ". ");
+      }
+    }    
+      
+    
+  }
+}
+
+
