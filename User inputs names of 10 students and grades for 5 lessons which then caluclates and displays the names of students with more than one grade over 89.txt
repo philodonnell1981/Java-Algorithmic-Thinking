@@ -1,0 +1,56 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int STUDENTS = 10;
+  static final int LESSONS = 5;
+     
+  public static void main(String[] args) {
+    
+    /*
+     * There are 10 students and each one of them has 
+     * received his or her grades for five lessons. 
+     * Write a Java program that prompts the user to 
+     * enter the name of each student and the grades 
+     * for all lessons and then calculates and displays 
+     * the names of the students who have more than one 
+     * grade greater than 89.
+     */
+    
+    int i, j;
+    
+    //Collect all names and grades for 10 students across 5 classes per student
+    String[] names = new String[STUDENTS];
+    int[][] grades = new int[STUDENTS][LESSONS]; 
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      System.out.println("Enter the name of student No. " + (i + 1) + ": ");
+      names[i] = cin.nextLine();
+      for (j = 0; j <= LESSONS - 1; j++) {
+        System.out.println("Enter " + names[i] + "'s grade for Lesson No. " + (j + 1) + ": ");
+        grades[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    // create array count to find students with > 1 grade > 89
+    int[] count = new int[STUDENTS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      count[i] = 0;
+      for (j = 0; j <= LESSONS - 1; j++) {
+        if (grades[i][j] > 89) {
+          count[i] ++;
+        }
+      }
+      if (count[i] > 1) {
+        System.out.println(names[i] + " achieved " + count[i] + " grades greater than 89.");
+      }
+    }
+    
+    
+    
+    
+  }
+}
