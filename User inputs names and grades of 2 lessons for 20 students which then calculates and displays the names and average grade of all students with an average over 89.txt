@@ -6,7 +6,7 @@ public class MainClass {
   
   static Scanner cin = new Scanner (System.in);
       
-  static final int STUDENTS = 3;
+  static final int STUDENTS = 20;
      
   public static void main(String[] args) {
     
