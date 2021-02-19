@@ -1,0 +1,60 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+      
+  static final int STUDENTS = 10;
+  static final int LESSONS = 5;
+     
+  public static void main(String[] args) {
+    
+    /*
+     * There are 10 students and each one of them has 
+     * received his or her grades for five lessons. 
+     * Write a Java program that prompts the user to 
+     * enter the name of each student and the grades 
+     * for all lessons and then calculates and displays 
+     * the names of the students who have more than one 
+     * grade greater than 89.
+     */
+    
+    int i, j;
+    
+    //Read names and grades together.  Iterate through columns in array grades
+    String[] names = new String[STUDENTS];
+    int[][] grades = new int[LESSONS][STUDENTS];
+    for (j = 0; j <= STUDENTS - 1; j++) {
+      System.out.print("Enter student No. " + (j + 1) + "'s name: ");
+      names[j] = cin.nextLine();
+      for (i = 0; i <= LESSONS - 1; i++) {
+        System.out.println("Enter " + names[j] + "'s grade for lesson No. " + (i + 1) + ": ");
+        grades[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    int[] count = new int[STUDENTS];
+    for (j = 0; j <= STUDENTS - 1; j++) {
+      count[j] = 0;
+      for (i = 0; i <= LESSONS - 1; i++) {
+        if (grades[i][j] > 89) {
+          count[j]++;
+        }
+        
+        for (j = 0; j <= STUDENTS - 1; j++) {
+          if (count[j] > 1) {
+            System.out.println(names[j]);
+          }
+        }
+        
+      }
+      }
+    
+    
+
+    
+    
+  }
+}
