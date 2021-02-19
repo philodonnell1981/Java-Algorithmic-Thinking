@@ -1,0 +1,57 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  
+  static final int STUDENTS = 30;
+       
+  public static void main(String[] args) {
+        
+    /*
+     * There are 30 students and each one of them has 
+     * received his or her grades for a test. 
+     * Write a Java program that prompts the user to 
+     * enter the grades (as a letter) for each student. 
+     * It then displays, for each student, the grade as 
+     * a percentage according to the following table:
+     * A = 90-100
+     * B = 80-89
+     * C = 70-79
+     * D = 60-69
+     * E/F = 0-59
+     */
+    
+    int i;
+    String grade, grade_as_percentage;
+    
+    HashMap<String, String> grades_table = new HashMap<>(
+        Map.of("A", "90-100", "B", "80-89", "C", "70-79",
+            "D", "60-69", "E", "0-59", "F", "0-59"));
+    
+    String[] names = new String[STUDENTS];
+    String[] grades = new String[STUDENTS];
+    
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      System.out.print("Enter student name No" + (i + 1) + ": ");
+      names[i] = cin.nextLine();
+      
+      System.out.print("Enter his or her grade: ");
+      grades[i] = cin.nextLine();
+    }
+   
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      grade = grades[i];
+      grade_as_percentage = grades_table.get(grade);
+      
+      System.out.println(names[i] + " " + grade_as_percentage);
+    }
+    
+    
+
+    
+    
+  }
+}
