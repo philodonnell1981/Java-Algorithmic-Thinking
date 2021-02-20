@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 3;
+  static final int COLS = 4;
+   
+      
+  public static void main(String[] args) {
+        
+    /*
+     * Write a program that creates a one-dimensional 
+     * array of 12 elements from an existing two-dimensional 
+     * array of 3 × 4 (shown below), as follows: 
+     * The elements of the first column of the two-dimensional 
+     * array must be placed in the first three positions of 
+     * the one-dimensional array, the elements of the second 
+     * column must be placed in the next three positions, 
+     * and so on:
+     * a = 
+     * 5 9 3 2
+     * 11 12 4 1
+     * 10 25 22 18
+     * 
+     * b = 5 11 10 9 12 25 3 4 22 2 1 18
+     */
+    
+    int i, j, k;
+    
+    int[][] a = { {5, 9, 3, 2}, // create 2 dimensional 3 x 4 array and add values to each element
+        {11, 12, 4, 1},
+        {10, 25, 22, 18}
+    };
+    
+    // create new one dimensional array b
+    int[] b = new int[ROWS * COLS];
+    
+    k = 0; // index of the new one dimensional array
+    for (j = 0; j <= COLS - 1; j++) { // iterate through columns
+      for (i = 0; i <= ROWS - 1; i++) {
+        b[k] = a[i][j];
+        k++;
+      }   
+    }
+    for (k = 0; k <= b.length - 1; k++) {
+      System.out.print(b[k] + "\t");
+    }
+    
+  
+  }
+}
