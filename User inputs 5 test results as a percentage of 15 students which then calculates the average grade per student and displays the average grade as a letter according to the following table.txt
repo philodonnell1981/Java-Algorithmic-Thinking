@@ -1,0 +1,75 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int STUDENTS = 15;
+  static final int TESTS = 5;
+   
+      
+  public static void main(String[] args) {
+        
+    /*
+     * There are 15 students and each one of them 
+     * has received his or her grades for five tests. 
+     * Write a Java program that lets the user enter 
+     * the grades (as a percentage) for each student 
+     * for all tests. It then calculates and displays, 
+     * for each student, the average grade as a letter 
+     * grade according to the following table:
+     * A:  90-100
+     * B:  80-89
+     * C:  70-79
+     * D:  60-69
+     * E/F: 0-59
+     */
+    
+    int i, j;
+    
+    // create 2 dimensional array that holds 5 test results for 15 different students
+    int[][] grades = new int[STUDENTS][TESTS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      for (j = 0; j <= TESTS - 1; j++) {
+        System.out.print("Enter the grade for student No." + (i + 1) + ": ");
+        grades[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    // create one dimensional array that stores the averages of the 5 test results
+    double[] average = new double[STUDENTS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      average[i] = 0;
+      for (j = 0; j <= TESTS - 1; j++) {
+        average[i] += grades[i][j];
+      }
+      average[i] /= TESTS;
+    }
+    
+    // displays the grades
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      System.out.print("The result for student No." + (i + 1) + ": ");
+      
+      if (average[i] < 60) {
+        System.out.println("E/F.");
+      }
+      else if (average[i] < 70) {
+        System.out.println("D.");
+      }
+      else if (average[i] < 80) {
+        System.out.println("C.");
+      }
+      else if (average[i] < 90) {
+        System.out.println("B");
+      }
+      else {
+        System.out.println("A.");
+      }
+      
+      
+      
+      
+    }
+  }
+}
