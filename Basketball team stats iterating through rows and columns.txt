@@ -1,0 +1,58 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int PLAYERS = 15;
+  static final int MATCHES = 12;
+   
+      
+  public static void main(String[] args) {
+        
+    /* 
+     * A basketball team with 15 players plays 12 matches. 
+     * Write a Java program that lets the user enter, 
+     * for each player, the number of points scored in each match. 
+     * The program must then display a.for each player, the total 
+     * number of points scored b.for each match, the total number 
+     * of points scored
+     */
+    
+    int i, j, total;
+    
+    // collect points for each player in all matches
+    int[][] points = new int[PLAYERS][MATCHES];
+    for (i = 0; i <= PLAYERS - 1; i++) {
+      for (j = 0; j <= MATCHES - 1; j++) {
+        System.out.print("Enter points of player No." + (i + 1) + " in match No." + (j + 1) + ": ");
+        points[i][j] = Integer.parseInt(cin.nextLine());
+      }      
+    }
+    
+    // calculate and display total number of points scored per player
+    for (i = 0; i <= PLAYERS - 1; i++) {
+      total = 0;
+      for (j = 0; j <= MATCHES - 1; j++) {
+        total += points[i][j];
+      }
+      System.out.println("Player No." + (i + 1) + " total points tally: " + total);
+    }
+    
+    // calculate and display for each match total number of points scored iterating through Columns
+    for (j = 0; j <= MATCHES - 1; j++) {
+      total = 0;
+      for (i = 0; i <= PLAYERS - 1; i++) {
+        total += points[i][j];
+      }
+      System.out.println("Total number of points scored by the team in match No." + (j + 1) + ": " + total);
+    }
+    
+
+    
+    
+    
+    
+  }
+}
