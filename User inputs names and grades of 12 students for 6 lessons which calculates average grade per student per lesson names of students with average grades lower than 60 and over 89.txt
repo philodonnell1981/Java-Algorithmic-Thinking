@@ -1,0 +1,75 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int STUDENTS = 12;
+  static final int LESSONS = 6;
+      
+  public static void main(String[] args) {
+        
+    /*
+     * There are 12 students and each one of them has 
+     * received his or her grades for six lessons. Write 
+     * a Java program that lets the user enter the name 
+     * of the student as well as his or her grades in all 
+     * lessons and then displays 
+     * a.for each student, his or her name and average grade
+     * b.for each lesson, the average grade 
+     * c.the names of the students who have an average grade less than 60 
+     * d.the names of the students who have an average grade greater than 89, and the message “Bravo!” next to it 
+     * Assume that the user enters values between 0 and 100.
+     */
+    
+    int i, j, total;
+    
+    //collect all data
+    String[] names = new String[STUDENTS];
+    int[][] grades = new int[STUDENTS][LESSONS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      System.out.println("Enter the name of students No." + (i + 1) + ": ");
+      names[i] = cin.nextLine();
+      for (j = 0; j <= LESSONS - 1; j++) {
+        System.out.println("Enter " + names[i] + " grade for lesson No. " + (j + 1) + ": ");
+        grades[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    //display for each student, his or her name and average grade
+    double[] average = new double[STUDENTS];
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      total = 0;
+      for (j = 0; j <= LESSONS - 1; j++) {
+        total += grades[i][j];
+      }
+      average[i] = total / (double)LESSONS;
+      System.out.println(names[i] + "'s average grade: " + average[i]);
+    }
+    
+    // display for each lesson, the average grade iterating through Columns (lessons)
+    for (j = 0; j <= LESSONS - 1; j++) {
+      total = 0;
+      for (i = 0; i <= STUDENTS - 1; i++) {
+        total += grades[i][j];
+      }
+      System.out.println("Average grade for lesson No." + (j + 1) + ": " + total / (double)STUDENTS);
+    }
+    
+    // display the names of the students who have an average grade less than 60
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      if (average[i] < 60) {
+        System.out.println("Students who scored less than 60: " + names[i]);
+      }
+    }
+    
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      if (average[i] > 89) {
+        System.out.println("Students who scored more than 89: " + names[i] + ". Bravo!!");
+      }
+    }
+      
+    
+  }
+}
