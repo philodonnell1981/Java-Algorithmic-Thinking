@@ -1,0 +1,70 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ARTISTS = 15;
+  static final int JUDGES = 5;
+      
+  public static void main(String[] args) {
+        
+    /*
+     * In a song contest, each artist sings a song 
+     * of his or her choice. There are five judges 
+     * and 15 artists, each of whom is scored for 
+     * his or her performance. 
+     * Write a Java program that prompts the user to 
+     * enter the names of the judges, the names of the 
+     * artists, the title of the song that each artist 
+     * sings, and the score they get from each judge. 
+     * The program must then display 
+     * a.for each artist, his or her name, the title of the song, and his or her total score 
+     * b.for each judge, his or her name and the average value of the score he or she gave (per artist)
+     */
+    
+    int i, j, total;
+    
+    String[] judge_names = new String[JUDGES];
+    for (j = 0; j <= JUDGES - 1; j++) {
+      System.out.print("Enter name for Jude No." + (j + 1) + ": ");
+      judge_names[j] = cin.nextLine();
+    }
+    
+    String[] artist_names = new String[ARTISTS];
+    String[] songs = new String[ARTISTS];
+    int[][] score = new int[ARTISTS][JUDGES];
+    for (i = 0; i <= ARTISTS - 1; i++) {
+      System.out.print("Enter a name for Artist No." + (i + 1) + ": ");
+      artist_names[i] = cin.nextLine();
+      System.out.print("Enter a song title for " + artist_names[i] + ": ");
+      songs[i] = cin.nextLine();
+      for (j = 0; j <= JUDGES - 1; j++) {
+        System.out.print("Enter a score for artist: " + artist_names[i] + ": ");
+        System.out.print(" received from judge: " + judge_names[j]);
+        score[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    // for each artist, his or her name, the title of the song, and his or her total score
+    for (i = 0; i <= ARTISTS - 1; i++) {
+      total = 0;
+      System.out.print("Artist: " + artist_names[i] + ", Song: " + songs[i] + ": ");
+      for (j = 0; j <= JUDGES - 1; j++) {
+        total += score[i][j];
+      }
+      System.out.println(artist_names[i] + ", " + songs[i] + ": " + total);
+    }
+    
+    for (j = 0; j <= JUDGES - 1; j++) {
+      total = 0;
+      for (i = 0; i <= ARTISTS; i++) {
+        total += score[i][j];
+      }
+      System.out.println("Average score given by " + judge_names[j] + total / (double)ARTISTS);
+    }
+      
+    
+  }
+}
