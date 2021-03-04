@@ -1,0 +1,50 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int CONSUMERS = 1000;
+  static final double KWH = 0.07;
+  static final double VAT = 0.19;
+      
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that lets the user enter the 
+     * electric meter reading in kilowatt-hours (kWh) at 
+     * the beginning and at the end of a month for 1000 consumers. 
+     * The program must calculate and display 
+     * a.for each consumer, the amount of kWh consumed and the 
+     * amount of money that must be paid given a cost of each kWh 
+     * of $ 0.07 and a value added tax (VAT) of 19% 
+     * b.the total consumption and the total amount of money that must be paid.
+     */
+    
+    int i, consumed;
+    double payment, total;
+    
+    int[][] meter_readings = new int[CONSUMERS][2];
+    for (i = 0; i <= CONSUMERS - 1; i++) {
+      System.out.print("Start of month meter reading: ");
+      meter_readings[i][0] = Integer.parseInt(cin.nextLine());
+      System.out.print("End of month meter reading: ");
+      meter_readings[i][1] = Integer.parseInt(cin.nextLine());
+     }
+    
+    total = 0;
+    for (i = 0; i <= CONSUMERS - 1; i++) {
+      consumed = (meter_readings[i][1] - meter_readings[i][0]);
+      System.out.println("kWh consumed: " + consumed);
+      payment = consumed * KWH;
+      payment += payment * VAT;
+      
+      total += consumed;
+    }
+        
+    System.out.println(total + ", " + (total * KWH + total + KWH * VAT));
+        
+    
+  }
+}
