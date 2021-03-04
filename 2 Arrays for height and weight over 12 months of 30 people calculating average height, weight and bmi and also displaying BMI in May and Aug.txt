@@ -1,0 +1,70 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int PEOPLE = 30;
+  static final int MONTHS = 12;
+      
+  public static void main(String[] args) {
+        
+    /* The Body Mass Index (BMI) is often used to 
+     * determine whether a person is overweight or 
+     * underweight for his or her height. The formula 
+     * used to calculate BMI is: 
+     * weight (lbs) x 703 / height(inches squared)
+     * Write a Java program that lets the user enter into two arrays the 
+     * weight (in pounds) and height (in inches) of 30 
+     * people, measured on a monthly basis, for a period 
+     * of one year (January to December). 
+     * The program must then calculate and display 
+     * a.for each person, his or her average weight, average height, and average BMI 
+     * b.for each person, his or her BMI in May and in August 
+     * Please note that all people are adults but some of them are between the ages of 18 and 25. 
+     * This means they may still grow taller, thus their height might be different each month!
+     */
+    
+    int i, j, totalW, totalH;
+    double totalBMI;
+    
+    // collect all data for the year in 2 x 2 dinensional arrays
+    int[][] weight = new int[PEOPLE][MONTHS];
+    int[][] height = new int[PEOPLE][MONTHS];
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      System.out.print("For Person No" + (i + 1));
+      for (j = 0; j <= MONTHS - 1; j++) {
+        System.out.print(" in month No" + (j + 1) + ", enter their weight(lb): ");
+        weight[i][j] = Integer.parseInt(cin.nextLine());
+        System.out.print("For month No" + (j + 1) + ", enter their height(inches): ");
+        height[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    //calculate for each person, his or her average weight, average height, and average BMI 
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      totalW = 0;
+      totalH = 0;
+      totalBMI = 0;
+      for (j = 0; j <= MONTHS - 1; j++) {
+        totalW += weight[i][j];
+        totalH += height[i][j];
+      }
+      totalW /= (double)MONTHS;
+      totalH /= (double)MONTHS;
+      totalBMI = totalW * 703 / Math.pow(totalH, 2);
+      System.out.print("For person No" + (i + 1) + ": Average weight: " + totalW + ".  Average height: " + totalH);
+      System.out.println(". Average BMI: " + totalBMI + ".  ");
+    }
+    
+    // for each person, his or her BMI in May and in August
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      System.out.println("BMI for person No" + (i + 1) + "in May: " + weight[i][4] * 703 / Math.pow(height[i][4], 2));
+      System.out.println("BMI for person No" + (i + 1) + "in May: " + weight[i][4] * 703 / Math.pow(height[i][4], 2));
+    }
+
+        
+    
+  }
+}
