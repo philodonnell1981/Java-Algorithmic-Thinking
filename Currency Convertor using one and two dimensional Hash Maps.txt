@@ -1,0 +1,55 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   static final int CURRENCIES = 4;
+   static final int DAYS = 5;
+      
+  public static void main(String[] args) {
+    
+    /*
+     * Write a Java program that prompts the user to enter 
+     * an amount in US dollars and calculates and displays 
+     * the corresponding currency value in Euros, British 
+     * Pounds Sterling, Australian Dollars, and Canadian Dollars. 
+     * The tables below contain the exchange rates for each currency 
+     * for a one-week period. The program must calculate the average 
+     * value of each currency and do the conversions based on that 
+     * average value:
+     * British Pound Sterling  1.320  1.321  1.332  1.331  1.341
+     * Euro                    1.143  1.156  1.138  1.122  1.129
+     * Canadian Dollar         0.757  0.764  0.760  0.750  0.749
+     * Australian Dollar       0.720  0.725  0.729  0.736  0.739
+     */
+    
+    int i, j;
+    
+    double average, total, usd;
+    
+    System.out.print("Enter an amount in US dollars");
+    usd = Double.parseDouble(cin.nextLine());
+    
+    String[] currency = {"British Pound Sterling", "Euro", "Canadian Dollar", "Australian Dollar"};
+    
+    double[][] rate = {{1.320, 1.321, 1.332, 1.331, 1.341},
+                       {1.143, 1.156, 1.138, 1.122, 1.129},
+                       {0.757, 0.764, 0.760, 0.750, 0.749},
+                       {0.720, 0.725, 0.729, 0.736, 0.739}
+                       };
+    
+    for (i = 0; i <= CURRENCIES - 1; i++) {
+      total = 0;
+      for (j = 0; j <= DAYS - 1; j++) {
+        total += rate[i][j];
+      }
+      average = total / DAYS;
+      System.out.println(usd + " US Dollars = " + (usd / average) + " " + currency[i] + "s");
+    }
+
+        
+    
+  }
+}
