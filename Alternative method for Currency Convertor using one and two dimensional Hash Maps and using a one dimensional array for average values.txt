@@ -1,0 +1,42 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int CURRENCIES = 4;
+  static final int DAYS = 5;
+         
+  public static void main(String[] args) {
+    int i, j;
+    double usd;
+    
+    String[] currency = {"GBP", "Euro", "Canadian Dollar", "Australian Dollar"};
+    double[][] rate = {{1.32, 1.321, 1.332, 1.331, 1.341}, 
+                      {1.143, 1.156, 1.138, 1.122, 1.129},
+                      {0.757, 0.764, 0.760, 0.750, 0.749},
+                      {0.720, 0.725, 0.729, 0.736, 0.739}
+                      };
+    
+    System.out.println("Enter amount in USD: ");
+    usd = Double.parseDouble(cin.nextLine());
+    
+    double[] average_currency = new double[CURRENCIES];
+    for (i = 0; i <= CURRENCIES - 1; i++) {
+      average_currency[i] = 0;
+      for (j = 0; j <= DAYS - 1; j++) {
+        average_currency[i] += rate[i][j];
+      }
+      average_currency[i] /= DAYS;
+    }
+    
+    // calculate and display the currency conversions
+    for (i = 0; i <= CURRENCIES - 1; i++) {
+      System.out.print(usd + "Dollars = ");
+      System.out.println(usd / average_currency[i] + " " + currency[i] );
+    }
+    
+    
+    
+  
