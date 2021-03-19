@@ -1,0 +1,47 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   static final int ELEMENTS = 20;
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that lets the user enter numerical 
+     * values into arrays a and b of 20 elements each. Then the 
+     * program, must create a new array new_arr of 20 elements. 
+     * The new array must contain in each position the greatest 
+     * value of arrays a and b of the corresponding position. 
+     */
+    
+    int i;
+    
+    // collect all numerical values off user and add to arrays a & b
+    double[] a = new double[ELEMENTS];
+    double[] b = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      a[i] = Double.parseDouble(cin.nextLine());
+      b[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    // create new_arr which compares and holds the greater of the respective elements of arrays a & b
+    double[] new_arr = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      if (a[i] > b[i]) {
+        new_arr[i] = a[i];
+      }
+      else {
+        new_arr[i] = b[i];
+      }
+    }
+    
+    // print new_arr
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.print(new_arr[i] + "\t");
+    }
+    
+    
+  }
+}
