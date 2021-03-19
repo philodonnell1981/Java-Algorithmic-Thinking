@@ -1,0 +1,43 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   static final int ELEMENTS_OF_A = 100;
+   static final int ELEMENTS_OF_NEW = ELEMENTS_OF_A - 2;
+         
+  public static void main(String[] args) {
+    /* 
+     * Write a Java program that lets the user enter 100 positive 
+     * numerical values into an array. Then, the program must 
+     * create a new array of 98 elements. 
+     * This new array must contain, in each position the 
+     * average value of the three elements that exist in the 
+     * current and the next two positions of the given array.
+     */
+    
+    int i;
+    
+    // create 1d array for user to input all the numbers
+    double[] a = new double [ELEMENTS_OF_A];
+    for (i = 0; i <= ELEMENTS_OF_A - 1; i++) {
+      System.out.print("Enter numerical value No " + (i + 1) + ": ");
+      a[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    // create new 1d array that will hold the average values that exist in the current and next 2 positions
+    double[] new_array = new double [ELEMENTS_OF_NEW];
+    for (i = 0; i <= ELEMENTS_OF_NEW - 1; i++) {
+      new_array[i] = (a[i] + a[i + 1] + a[i + 2]) / 3;
+    }
+    
+    for (i = 0; i <= ELEMENTS_OF_NEW - 1; i++) {
+      System.out.print(new_array[i] + " ");
+    }
+    
+   
+    
+  }
+}
