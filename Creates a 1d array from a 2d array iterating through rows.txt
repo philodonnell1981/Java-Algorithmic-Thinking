@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 3;
+  static final int COLS = 4;
+         
+  public static void main(String[] args) {
+    /*
+     * Write a Java program to create a one-dimensional 
+     * array of 12 elements from the two-dimensional array 
+     * shown below, as follows: the first row of the 
+     * two-dimensional array must be placed in the first four 
+     * positions of the one-dimensional array, the second row 
+     * of the two-dimensional array must be placed in the next 
+     * four positions of the one-dimensional array, and the 
+     * last row of the two-dimensional array must be placed in 
+     * the last four positions of the one-dimensional array.
+     *     9  9  2  6
+     * a = 4  1  10 11
+     *     12 15 7  3    
+     */
+    
+    int i, j, k;
+    
+    int[][] a = {{9, 9, 2, 6},
+                 {4, 1, 10, 11},
+                 {12, 15, 7, 3}
+                 };
+    
+    int[] b = new int[ROWS * COLS];
+    k = 0;
+    for(i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        b[k] = a[i][j];
+        k++;
+      }
+    }
+    
+    for (k = 0; k <= b.length - 1; k++) {
+      System.out.print(b[k] + " ");
+    }
+    
+    
+    
+  
+   
+   
+    
+  }
+}
