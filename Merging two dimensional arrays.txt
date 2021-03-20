@@ -1,0 +1,62 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   static final int ROWS_A = 3;
+   static final int COLS_A = 4;
+   static final int ROWS_B = 5;
+   static final int COLS_B = 4;
+   
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that for two given arrays 
+     * a and b of 3 × 4 and 5 × 4 elements respectively 
+     * it creates a new array new_arr of 8 × 4 elements. 
+     * In this new array, the first 3 rows must contain the 
+     * elements of array a and the next 5 rows must contain 
+     * the elements of array b.
+     */
+    int i, j;
+    
+    int[][] a = {{1, 2, 3, 4},
+                 {5, 6, 7, 8},
+                 {9, 10, 11, 12}
+                 };
+    int[][] b = {{13, 14, 15, 16},
+                 {17, 18, 19, 20},
+                 {21, 22, 23, 24},
+                 {25, 26, 27, 28},
+                 {29, 30, 31, 32}
+                 };
+    
+    int[][] new_arr = new int[ROWS_A + ROWS_B][COLS_A + COLS_B];
+    for (i = 0; i <= ROWS_A - 1; i++) {
+      for (j = 0; j <= COLS_A - 1; j++) {
+        new_arr[i][j] = a[i][j];
+      }
+    }
+    for (i = 0; i <= ROWS_B - 1; i++) {
+      for (j = 0; j <= COLS_B - 1; j++) {
+        new_arr[a.length + i][j] = b[i][j];
+      }
+    }
+    
+    for (i = 0; i <= a.length + b.length - 1; i++) {
+      for (j = 0; j <= COLS_A - 1; j++) {
+        System.out.print(new_arr[i][j] + "\t");
+      }
+      System.out.println();
+    }
+    
+    
+    
+    
+    
+    
+    
+  }
+}
