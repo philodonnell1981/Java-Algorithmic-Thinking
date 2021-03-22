@@ -1,0 +1,48 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+   static final int ELEMENTS = 100;
+   
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that lets the user enter 100 
+     * two-digit integers into an array and then creates 
+     * a new array of only the integers that contain at 
+     * least one of the digit 5.
+     */
+    int i, five_index, d1, d2;
+    
+    int[] ar = new int[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      ar[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    int[] fives = new int[ELEMENTS];
+    five_index = 0;
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      d2 = ar[i] % 10;
+      d1 = ar[i] / (int) 10;
+      if (d1 == 5 || d2 == 5) {
+        fives[five_index++] = ar[i]; 
+      }
+    }
+    for (i = 0; i <= five_index - 1; i++) {
+      System.out.print(fives[i] + "\t");
+    }
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+}
