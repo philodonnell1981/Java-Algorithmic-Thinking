@@ -5,7 +5,7 @@ import java.util.*;
 public class MainClass {
   
   static Scanner cin = new Scanner (System.in);
-  static final int ELEMENTS = 5;
+  static final int ELEMENTS = 20;
             
   public static void main(String[] args) {
     /*
