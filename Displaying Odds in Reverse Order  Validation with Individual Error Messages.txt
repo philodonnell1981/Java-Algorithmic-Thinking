@@ -1,0 +1,51 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 5;
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that prompts the user to enter 20 
+     * odd positive integers in an array and then displays them 
+     * in the exact reverse of the order in which they were given. 
+     * The program must also validate data input and display individual 
+     * error messages when the user enters any non-positive values, 
+     * any floats, or any even integers.
+     */
+    int i;
+    double x;
+    boolean failure;
+    
+    int[] odds = new int[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      do {
+        System.out.print("Enter an odd positive integer: ");
+        x = Double.parseDouble(cin.nextLine());
+        failure = false;
+        if (x < 0) {
+          System.out.println("Error - You entered a negative!");
+          failure = true;
+        }
+        else if (x != (int) x) {
+          System.out.println("Error - You entered a Real!");
+          failure = true;
+        }
+        else if (x % 2 == 0) {
+          System.out.println("Error - You entered an even number!");
+          failure = true;
+        }
+      } while (failure);
+      odds[i] = (int) x;
+    }
+    
+    for (i = ELEMENTS - 1; i >= 0; i--) {
+      System.out.print(odds[i] + "\t");
+    }
+    
+    
+   }
+}
