@@ -1,0 +1,36 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int LAKES = 20;
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that lets the user enter the depths 
+     * of 20 lakes and then displays the depth of the deepest one.
+     */
+    
+    int i;
+    double max;
+    
+    double[] depths = new double[LAKES];
+    for (i = 0; i <= LAKES - 1; i++) {
+      depths[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    max = depths[0]; // first value
+    
+    // search for deepest lake
+    for (i = 1; i <= LAKES - 1; i++) {
+      if (depths[i] > max) {
+        max = depths[i];
+      }
+    }
+    System.out.println(max);
+    
+    
+   }
+}
