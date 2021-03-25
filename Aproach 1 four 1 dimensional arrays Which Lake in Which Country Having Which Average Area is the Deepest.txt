@@ -1,0 +1,53 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int LAKES = 20;
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that lets the user enter the 
+     * names and the depths of 20 lakes as well as the 
+     * country in which they belong, and their average area. 
+     * The program must then display all available information 
+     * about the deepest lake.
+     */
+    
+    int i;
+    double maxDepth, maxArea;
+    String maxName, maxCountry;
+    
+    
+    double[] depths = new double[LAKES];
+    String[] lakeNames = new String[LAKES];
+    String[] lakeCountry = new String[LAKES];
+    double[] lakeArea = new double[LAKES];
+    for (i = 0; i <= LAKES - 1; i++) {
+      lakeNames[i] = cin.nextLine();
+      depths[i] = Double.parseDouble(cin.nextLine());
+      lakeCountry[i] = cin.nextLine();
+      lakeArea[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    maxName = lakeNames[0];
+    maxDepth = depths[0];
+    maxCountry = lakeCountry[0];
+    maxArea = lakeArea[0];
+    for (i = 1; i <= LAKES - 1; i++) {
+      if (depths[i] > maxDepth) {
+        maxDepth = depths[i];
+        maxName = lakeNames[i];
+        maxCountry = lakeCountry[i];
+        maxArea = lakeArea[i];
+      }
+    }
+    
+    System.out.println(maxName + " in " + maxCountry + ", depth: " + maxDepth);
+    
+    
+  
+   }
+}
