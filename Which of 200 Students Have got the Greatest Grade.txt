@@ -1,0 +1,61 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int STUDENTS = 200;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that prompts the user to enter 
+   * the names and the grades of 200 students and then 
+   * displays the names of all those who share the one 
+   * greatest grade. Using a loop control structure, the 
+   * program must also validate data input and display an 
+   * error message when the user enters an empty name or 
+   * any negative values or values greater than 100 for grades.
+   */
+    int i, maximum;
+        
+    String[] names = new String[STUDENTS];
+    int[] grades = new int[STUDENTS];    
+    for (i = 0; i <= STUDENTS - 1; i++) {    
+        System.out.print("Enter name of student No " + (i + 1) + ": ");
+        names[i] = cin.nextLine();
+        while (names[i].equals("")) {
+          System.out.println("Error! Name must not be empty");
+          System.out.print("Enter name of student No " + (i + 1) + ": ");
+          names[i] = cin.nextLine();
+        }        
+        System.out.print("Enter the grade of " + names[i] + ": ");
+        grades[i] = Integer.parseInt(cin.nextLine());
+        while (grades[i] < 0 || grades[i] > 100) {
+          System.out.println("Error! Grade must be positive and below 100!");
+          System.out.print("Enter the grade of " + names[i]);
+          grades[i] = Integer.parseInt(cin.nextLine());
+        }
+    }
+    
+    // find the maximum
+    maximum = grades[0];
+    for (i = 1; i <= STUDENTS - 1; i++) {
+      if (grades[i] > maximum) {
+        maximum = grades[i];
+      }
+    }
+    
+    // Displays the names of all students who share the best grade
+    System.out.println("The following students have achieved the greatest grade: ");
+    for (i = 0; i <= STUDENTS - 1; i++) {
+      if (grades[i] == maximum) {
+        System.out.println(names[i]);
+      }
+    }
+    
+    
+    
+  
+   }
+}
