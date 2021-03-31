@@ -1,0 +1,57 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int CITIES = 2;
+  static final int DAYS = 2;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that lets the user enter the temperatures 
+   * (in degrees Fahrenheit) recorded at the same hour each day in 
+   * January in 10 different cities. The Java program must display 
+   * the name of the city that had the lowest temperature and on 
+   * which day it was recorded.
+   */
+    
+    int i, j, min_temp, min_i, min_j;
+    
+    String[] cityNames = new String[CITIES];
+    int[][] t = new int[CITIES][DAYS];
+    for (i = 0; i <= CITIES - 1; i++) {
+      System.out.print("Enter the name of the City: ");
+      cityNames[i] = cin.nextLine();
+      for (j = 0; j <= DAYS - 1; j++) {
+        System.out.print("Enter the temperature on day " + (j + 1) + ": ");
+        t[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    // find the coldest day and city
+    min_temp = t[0][0];
+    min_i = 0;
+    min_j = 0;
+    for (i = 0; i <= CITIES - 1; i++) {
+      for (j = 0; j <= DAYS - 1; j++) {
+        if (t[i][j] < min_temp) {
+          min_temp = t[i][j];
+          min_i = i;
+          min_j = j;
+        }
+      }
+    }
+    
+    System.out.println(cityNames[min_i] + " on day: " + (min_j + 1));
+    System.out.println("Minimum Temperature: " + min_temp);
+    
+    
+   
+    
+    
+    
+  
+   }
+}
