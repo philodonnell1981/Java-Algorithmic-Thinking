@@ -1,0 +1,55 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 30;
+  static final int COLS = 20;
+            
+  public static void main(String[] args) {
+  /*
+   *Write a Java program that lets the user enter values in a 20 × 30 array 
+   *and then finds and displays the minimum and the maximum values of each row. 
+   */
+    
+    int i, j;
+    
+    double[][] b = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        b[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    double[] minimum = new double[ROWS];
+    double[] maximum = new double[ROWS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      minimum[i] = b[i][0];
+      maximum[i] = b[i][0];
+      for (j = 1; j <= COLS - 1; j++) {
+        if (b[i][j] < minimum[i]) {
+          minimum[i] = b[i][j];
+        }
+        if (b[i][j] > maximum[i]) {
+          maximum[i] = b[i][j];
+        }
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      System.out.println(minimum[i] + " " + maximum[i]);
+    }
+    
+   
+    
+    
+    
+   
+    
+    
+    
+  
+   }
+}
