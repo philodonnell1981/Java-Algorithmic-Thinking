@@ -1,0 +1,44 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 30;
+  static final int COLS = 2;
+            
+  public static void main(String[] args) {
+  /*
+   *Write a Java program that lets the user enter values in a 20 × 30 array 
+   *and then finds and displays the minimum and the maximum values of each row. 
+   */
+    
+    int i, j;
+    double minimum, maximum;
+    
+    double[][] b = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        b[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      minimum = b[i][0];
+      maximum = b[i][0];
+      for(j = 1; j <= COLS - 1; j++) {
+        if (b[i][j] < minimum) {
+          minimum = b[i][j];
+        }
+        if (b[i][j] > maximum) {
+          maximum = b[i][j];
+        }
+      }
+      System.out.println(minimum + " " + maximum);
+    }
+    
+    
+    
+   }
+}
