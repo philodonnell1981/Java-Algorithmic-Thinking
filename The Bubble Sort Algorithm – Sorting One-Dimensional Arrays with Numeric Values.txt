@@ -1,0 +1,40 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 20;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that lets the user enter 
+   * 20 numerical values into an array and then sorts 
+   * them in ascending order using the bubble sort algorithm.
+   */
+    int i, m, n;
+    double temp;
+    
+    double[] a = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      a[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (m = 1; m <= ELEMENTS - 1; m++) {
+      for (n = ELEMENTS - 1; n >= m; n--) {
+        if (a[n] < a[n - 1]) {
+          temp = a[n];
+          a[n] = a[n - 1];
+          a[n - 1] = temp;
+        }
+      }
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.print(a[i] + "\t");
+    }
+    
+    
+   }
+}
