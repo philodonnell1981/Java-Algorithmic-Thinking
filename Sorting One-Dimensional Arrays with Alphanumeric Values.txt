@@ -1,0 +1,42 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 20;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a code fragment that sorts the alphanumeric 
+   * values of an array in descending order using the bubble sort algorithm.
+   */
+    
+    int i, m, n;
+    String temp_str;
+    
+    String[] a = new String[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      a[i] = cin.nextLine();
+    }
+    
+    for (m = 1; m <= ELEMENTS - 1; m++) {
+      for (n = ELEMENTS - 1; n >= m; n--) {
+        if (a[n].compareTo(a[n - 1]) > 0) { // change comparison operator '>' to a '<' if you wanted to sort on ascending order 
+          temp_str = a[n];
+          a[n] = a[n - 1];
+          a[n - 1] = temp_str;
+        }
+      }
+    }
+    
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      System.out.print(a[i] + "\t");
+    }
+  
+    
+    
+    
+   }
+}
