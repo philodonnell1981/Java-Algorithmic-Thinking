@@ -1,0 +1,49 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int LAKES = 20;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that lets the user enter the 
+   * names of 20 lakes and their corresponding average area. 
+   * The program must then sort them by average area in 
+   * ascending order using the bubble sort algorithm.
+   */
+   
+    int i, m, n;
+    double temp;
+    String temp_str;
+    
+    String[] names = new String[LAKES];
+    double[] areas = new double[LAKES];
+    for (i = 0; i <= LAKES - 1; i++) {
+      names[i] = cin.nextLine();
+      areas[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (m = 1; m <= LAKES - 1; m++) {
+      for (n = LAKES - 1; n >= m; n--) {
+        if (areas[n] < areas[n - 1]) {
+          temp = areas[n];
+          areas[n] = areas[n - 1];
+          areas[n - 1] = temp;
+          
+          temp_str = names[n];
+          names[n] = names[n - 1];
+          names[n - 1] = temp_str;
+        }
+      }
+    }
+    
+    for (i = 0; i <= LAKES - 1; i++) {
+      System.out.println(names[i] + " - " + areas[i]);
+    }
+   
+  
+   }
+}
