@@ -1,0 +1,56 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int PEOPLE = 10;
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that prompts the user to enter the 
+   * last and first names of 100 people and then displays 
+   * them with the last names sorted in alphabetical order. 
+   * Moreover, if two or more people have the same last name, 
+   * their first names must be displayed in alphabetical 
+   * order as well.
+   */
+    int i, n, m;
+    String temp_str;
+    
+    String[] first_nm = new String[PEOPLE];
+    String[] last_nm = new String[PEOPLE];
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      first_nm[i] = cin.nextLine();
+      last_nm[i] = cin.nextLine();
+    }
+    
+    for (m = 1; m <= PEOPLE - 1; m++) {
+      for (n = PEOPLE - 1; n >= m; n--) {
+        if (last_nm[n].compareTo(last_nm[n - 1]) < 0) {
+          temp_str = last_nm[n];
+          last_nm[n] = last_nm[n - 1];
+          last_nm[n - 1] = temp_str;
+          
+          temp_str = first_nm[n];
+          first_nm[n] = first_nm[n - 1];
+          first_nm[n - 1] = temp_str;
+        }
+        else if (last_nm[n].equals(last_nm[n - 1])) {
+          if (first_nm[n].compareTo(first_nm[n - 1]) < 0) {
+            temp_str = first_nm[n];
+            first_nm[n] = first_nm[n - 1];
+            first_nm[n - 1] = temp_str;
+          }
+        }
+      }
+    }
+    
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      System.out.println(last_nm[i] + " " + first_nm[i]);
+    }
+    
+  
+   }
+}
