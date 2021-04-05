@@ -1,0 +1,51 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int COLS = 5;
+  static final int ROWS = 7;
+  
+            
+  public static void main(String[] args) {
+  /*
+   * Write a code fragment that sorts each column of a 5 x 7 two-dimensional
+   * array in ascending order. Assume that the array contains numerical values.
+   */
+    
+    int i, j, m, n;
+    double temp;
+    
+    double[][] a = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS -1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        a[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    // sort each column in ascending order
+    for (j = 0; j <= COLS - 1; j++) {
+      for (m = 1; m <= ROWS - 1; m++) {
+        for (n = ROWS - 1; n >= m; n--)  {
+          if (a[n][j] < a[n - 1][j]) {
+            temp = a[n][j];
+            a[n][j] = a[n - 1][j];
+            a[n - 1][j] = temp;
+          }
+        }
+      }
+    }
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j ++) {
+        System.out.print(a[i][j] + "\t");
+      }
+      System.out.println();
+    }
+    
+    
+  
+   }
+}
