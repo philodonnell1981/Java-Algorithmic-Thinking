@@ -1,0 +1,50 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 20;
+    
+            
+  public static void main(String[] args) {
+  /*
+   * Write a Java program that lets the user enter the weights 
+   * of 20 people and then displays the three heaviest weights 
+   * and the three lightest weights. Use the modified bubble 
+   * sort algorithm.
+   */
+    
+    int i, m, n;
+    boolean swaps;
+    double temp;
+    
+    double[] w = new double[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      w[i] = Double.parseDouble(cin.nextLine());
+    }
+    
+    for (m = 1; m <= ELEMENTS - 1; m++) {
+      swaps = false;
+      for (n = ELEMENTS - 1; n >= m; n--) {
+        if (w[n] < w[n - 1]) {
+          temp = w[n];
+          w[n] = w[n - 1];
+          w[n - 1] = temp;
+          
+          swaps = true;
+        }
+      }
+      if (!swaps) break;
+    }
+    
+    System.out.println("The three heaviest weights are: ");
+    System.out.println(w[ELEMENTS - 3] + " " + w[ELEMENTS - 2] + " " + w[ELEMENTS - 1]);    
+    
+    System.out.println("The three lightest weights are: ");
+    System.out.println(w[0] + " " + w[1] + " " + w[2]);    
+    
+  
+   }
+}
