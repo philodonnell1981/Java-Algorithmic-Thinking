@@ -1,0 +1,73 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int TEAMS = 32;
+  static final int PLAYERS = 24;
+    
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that prompts the user to enter the names 
+     * of the 32 national teams of the FIFA World Cup, the names of 
+     * the 24 players for each team, and the total number of goals 
+     * each player scored. The program must then display the name of 
+     * each team along with its five best scorers. 
+     * Use the modified bubble sort algorithm.
+     */
+    
+    int i, j, m, n, temp;
+    boolean swaps;
+    String tempStr;
+    
+    // data entry stage to find out Teams, Players & Goals
+    String[] t = new String[TEAMS];
+    String[][] p = new String[TEAMS][PLAYERS];
+    int[][] g = new int[TEAMS][PLAYERS];
+    for(i = 0; i <= TEAMS - 1; i++) {
+      System.out.print("Enter the name of team No " + (i + 1) + ": ");
+      t[i] = cin.nextLine();
+      for (j = 0; j <= PLAYERS - 1; j++) {
+        System.out.print(t[i] + ": Enter the name of Player No " + (j + 1) + ": ");
+        p[i][j] = cin.nextLine();
+        System.out.print("Enter total number of goals scored by " + p[i][j] + " of " + t[i] + ": ");        
+        g[i][j] = Integer.parseInt(cin.nextLine());
+      }
+    }
+    
+    // sort array g
+    for (i = 0; i <= TEAMS - 1; i++) {
+      swaps = false;
+      for (m = 1; m <= PLAYERS; m++) {
+        for (n = PLAYERS - 1; n >= m; n--) {
+          if (g[i][n] > g[i][n - 1]) {
+            temp = g[i][n];
+            g[i][n] = g[i][n - 1];
+            g[i][n - 1] = temp;
+            
+            tempStr = p[i][n];
+            p[i][n] = p[i][n - 1];
+            p[i][n - 1] = tempStr;
+            
+            swaps = true;
+          }
+        }
+      }
+      if (!swaps) break;
+    }
+    
+    // display top 5 goal scorers of each team
+    for (i = 0; i <= TEAMS - 1; i++) {
+      System.out.println("Top 5 Goals scorers from " + t[i] + ": ");
+      for (j = 0; j <= 4; j++) {
+        System.out.println(p[i][j] + " scored " + g[i][j] + " goals.");
+      }
+    }
+    
+    
+  
+   }
+}
