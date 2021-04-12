@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int MONTHS = 12;
+    
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that prompts the user to enter 
+     * the electric meter reading recorded at the end of each 
+     * month for a period of one year. It then displays each 
+     * reading (in descending order) along with the name of 
+     * the corresponding month. Use the selection sort algorithm.
+     */
+    int i, m, n, maximum, index_of_max, temp;
+    String max_month, temp_str;
+    
+    String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                                  };
+    int[] kWh = new int[MONTHS];
+    for (i = 0; i <= MONTHS - 1; i++) {
+      System.out.print("Enter the kWh meter reading for " + months[i] + ": ");
+      kWh[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (m = 0; m <= MONTHS - 1; m++) {
+      maximum = kWh[m];
+      index_of_max = m;
+      for (n = m; n <= MONTHS - 1; n++) {
+        if (kWh[n] > maximum) {
+          maximum = kWh[n];
+          index_of_max = n;
+          
+          max_month = months[n];
+        }
+      }
+      temp = kWh[m];
+      kWh[m] = kWh[index_of_max];
+      kWh[index_of_max] = temp;
+      
+      temp_str = months[m];
+      months[m] = months[index_of_max];
+      months[index_of_max] = temp_str;      
+    }
+    for (i = 0; i <= MONTHS - 1; i++) {
+      System.out.println(months[i] + " " + kWh[i]);
+    }
+    
+    
