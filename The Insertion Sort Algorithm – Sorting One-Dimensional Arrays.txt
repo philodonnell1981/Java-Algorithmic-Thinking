@@ -1,0 +1,53 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 20;
+    
+            
+  public static void main(String[] args) {
+    /*
+     * Write a code fragment that sorts the elements of a 1 x 20 
+     * array in ascending order using the insertion sort algorithm. 
+     * Assume that the array contains numerical values.
+     */
+    
+    int i, m, n, element;
+    
+    int[] a = new int[ELEMENTS];
+    for (i = 0; i <= ELEMENTS - 1; i++) {
+      a[i] = Integer.parseInt(cin.nextLine());
+    }
+    
+    for (m = 1; m <= ELEMENTS - 1; m++) {
+      /* "remove" the element at position m from the 
+       * array and keep it in variable element
+       */
+      
+      element = a[m];
+      
+      // Shift appropriate elements to the right
+      n = m;
+      while (n > 0 && a[n - 1] > element) {
+        a[n] = a[n - 1];
+        n--;
+      }
+      
+      // Insert the previously "removed" element at index position n
+      
+      a[n] = element;
+    }
+    
+    for (i = 0; i <= ELEMENTS -1; i++) {
+      System.out.print(a[i] + " ");
+    }
+     
+    
+
+    
+  
+   }
+}
