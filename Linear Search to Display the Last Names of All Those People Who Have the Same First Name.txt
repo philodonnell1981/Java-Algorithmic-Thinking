@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+    static final int PEOPLE = 20;
+            
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that prompts the user to enter the names of 20 people: 
+     * their first names in the array first_names, and their last names in the array 
+     * last_names. The program must then ask the user for a first name, upon which it 
+     * will search and display the last names of all those whose first name 
+     * equals the given one.
+     */
+    int i;
+    String needle;
+    boolean found;
+    
+    String[] first_names = new String[PEOPLE];
+    String[] last_names = new String[PEOPLE];
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      System.out.print("Enter the first name of person No " + (i + 1) + ": ");
+      first_names[i] = cin.nextLine();
+      System.out.print("Enter the last name of " + first_names[i] + ": ");
+      last_names[i] = cin.nextLine();
+    }
+    
+    // get the name to search and convert it to uppercase
+    System.out.print("Enter a first name to search for: ");
+    needle = cin.nextLine().toUpperCase();
+    
+    // search for given value in array first names
+    found = false;
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      if (first_names[i].toUpperCase().equals(needle)) {
+        System.out.println(first_names[i] + " " + last_names[i]);
+        found = true;
+      }
+    }
+    
+    if (!found) {
+      System.out.println("Not found");
+    }
+    
+    
+    
+    
+    
+  
+   }
+}
