@@ -1,0 +1,62 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+    static final int DRIVERS = 10;
+    static final int LAPS = 20;
+    
+            
+  public static void main(String[] args) {
+    /*
+     * Ten race car drivers run their cars as fast as possible 
+     * on a racing track. Each car runs 20 laps and for each lap 
+     * the corresponding elapsed time (in seconds) is recorded. 
+     * Write a Java program that prompts the user to enter the 
+     * name of each driver and their elapsed time for each lap. 
+     * The program must then display the name of each driver 
+     * along with his or her three worst elapsed times. 
+     * Use the insertion sort algorithm.
+     */
+    
+    int i, j, m, n;
+    double element;
+    String[] names = new String[DRIVERS];
+    double[][] lap_times = new double[DRIVERS][LAPS];
+    for (i = 0; i <= DRIVERS - 1; i++) {
+      System.out.print("Enter the name of Driver No " + (i + 1) + ": ");
+      names[i] = cin.nextLine();
+      for (j = 0; j <= LAPS - 1; j++) {
+        System.out.print("Enter the lap time for lap No " + (j + 1) + ": ");
+        lap_times[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    for (i = 0; i <= DRIVERS - 1; i++) {
+      for (m = 1; m <= LAPS - 1; m++) {
+        element = lap_times[i][m]; // remove the lap time at index position m for driver i and keep it in variable element
+        
+        // switch faster lap times to the right
+        n = m;
+        while (n > 0 && lap_times[i][n - 1] < element) {
+          lap_times[i][n] = lap_times[i][n - 1];
+          n--;
+        }
+        lap_times[i][n] = element;
+      }
+    }
+    for (i = 0; i <= DRIVERS; i++) {
+      System.out.println("Worst 3 lap times of " + names[i] + ": ");
+      for (j = 0; j <= 2; j++) {
+        System.out.println(lap_times[i][j]);
+      }
+    }
+    
+    
+    
+    
+  
+   }
+}
