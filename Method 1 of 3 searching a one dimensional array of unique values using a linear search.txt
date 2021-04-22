@@ -1,0 +1,41 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+                
+  public static void main(String[] args) {
+    /*
+     * Write a code fragment that searches a one-dimensional 
+     * array for a given value. Assume that the array contains 
+     * numerical values and each value in the array is unique. 
+     * Use the linear search algorithm.
+     */
+    
+    int i;
+    double needle;
+    boolean found;
+    
+    double[] haystack = {12, 2.5, 52.03, 100, 2000.25, 35.02, 25.6};
+    System.out.print("Enter a value to search: ");
+    needle = Double.parseDouble(cin.nextLine());
+    
+    found = false;
+    for (i = 0; i <= haystack.length - 1; i++) {
+      if (haystack[i] == needle) {
+        System.out.println(needle + " found at index position: " + i);
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      System.out.println("Nothing found");
+    }
+    
+    
+    
+  
+   }
+}
