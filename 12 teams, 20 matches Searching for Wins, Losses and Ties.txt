@@ -1,0 +1,59 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int TEAMS = 12;
+  static final int MATCHES = 20;
+  
+  public static void main(String[] args) {
+    /*
+     * Twelve teams participate in a football tournament, 
+     * and each team plays 20 games, one game each week. 
+     * Write a Java program that prompts the user to enter 
+     * the name of each team and the letter 
+     * “W” for win, “L” for loss, or “T” for tie (draw) for each game. 
+     * Then the program must prompt the user for a letter (W, L, or T) 
+     * and display, for each team, the week number( s) in which the 
+     * team won, lost, or tied respectively. 
+     * For example, if the user enters “L”, the Java program must search and display, 
+     * for each team, the week numbers (e.g., Week 3, Week 14, and so on) 
+     * in which the team lost the game.
+     */
+    int i, j;
+    String needle;
+    boolean found;
+    
+    String[] teams = new String[TEAMS];
+    String[][] results = new String[TEAMS][MATCHES];
+    for (i = 0; i <= TEAMS - 1; i++) {
+      System.out.print("Enter Team Name: ");
+      teams[i] = cin.nextLine();
+      for (j = 0; j <= MATCHES - 1; j++) {
+        System.out.print("Enter a result (W, L, D) for " + teams[i] + " for match No " + j + ": ");
+        results[i][j] = cin.nextLine().toUpperCase();
+      }
+    }
+    
+    System.out.print("Enter a result (W, L or D) to search: ");
+    needle = cin.nextLine().toUpperCase();
+    for (i = 0; i <= TEAMS - 1; i++) {
+      found = false;
+      for (j = 0; j <= MATCHES - 1; j++) {
+        if (results[i][j].equals(needle)) {
+          System.out.println(teams[i] + ", Week " + (j + 1) + ": " + needle);
+          found = true;
+        }
+      }
+      if (!found) {
+        System.out.println("Nothing found for " + teams[i]);
+      }
+    }
+    
+    
+    
+  
+   }
+}
