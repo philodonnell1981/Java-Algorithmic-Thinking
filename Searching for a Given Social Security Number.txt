@@ -1,0 +1,54 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int PEOPLE = 100;
+                
+  public static void main(String[] args) {
+    /*
+     * In the United States, the Social Security Number (SSN) 
+     * is a nine-digit identity number applied to all 
+     * U.S. citizens in order to identify them for the 
+     * purposes of Social Security. 
+     * Write a Java program that prompts the user to 
+     * enter the SSN and the first and last names of 100 people. 
+     * The program must then ask the user for an SSN, upon which 
+     * it will search and display the first and last name of 
+     * the person who holds that SSN.
+     */
+    int i;
+    String needle;
+    
+    String[] ssn = new String[PEOPLE];
+    String[] first_nm = new String[PEOPLE];
+    String[] last_nm = new String[PEOPLE];
+    for (i = 0; i <= PEOPLE - 1; i++) {
+      System.out.print("Enter SSN: ");
+      ssn[i] = cin.nextLine();
+      System.out.print("Enter first name: ");
+      first_nm[i] = cin.nextLine();
+      System.out.print("Enter first name: ");
+      first_nm[i] = cin.nextLine();
+    }
+    
+    System.out.print("Enter an SSN: ");
+    needle = cin.nextLine();
+    
+    // search for given value in ssn
+    i = 0;
+    while (i < PEOPLE - 1 && !ssn.equals(needle)) {
+      i++;
+    }
+    
+    if (!ssn[i].equals(needle)) {
+      System.out.println("Nothing found");
+    }
+    else {
+      System.out.print(first_nm[i] + " " + last_nm[i]);
+    }
+  
+   }
+}
