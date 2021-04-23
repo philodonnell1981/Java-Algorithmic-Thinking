@@ -1,0 +1,46 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 100;
+  static final int COLS = 100;
+  public static void main(String[] args) {
+    /*
+     * Write a code fragment that searches each row of a 
+     * two-dimensional array for a given value. 
+     * Assume that the array contains numerical values 
+     * and may contain the same value multiple times. 
+     * Use the linear search algorithm.
+     */
+    int i, j;
+    boolean found;
+    double needle;
+    
+    double[][] haystack = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        haystack[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }  
+    
+    System.out.print("Enter a numeric value to search: ");
+    needle = Double.parseDouble(cin.nextLine());
+    
+    for (i = 0; i <= ROWS - 1; i++) {
+      found = false;      
+      for (j = 0; j <= COLS - 1; j++) {
+        if (haystack[i][j] == needle) {
+          System.out.println("Found at column " + j);
+        }
+      }
+      if (!found) {
+        System.out.println("Nothing found in row " + i);
+      }
+    }
+    
+  
+   }
+}
