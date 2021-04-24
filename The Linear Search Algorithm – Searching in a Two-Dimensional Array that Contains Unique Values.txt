@@ -1,0 +1,86 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int CITIES = 10;
+  static final int CITIZENS = 30;
+
+  
+  public static void main(String[] args) {
+    /*
+     * A public opinion polling company makes phone calls 
+     * in 10 cities and asks 30 citizens in each city whether 
+     * or not they exercise. 
+     * Write a Java program that prompts the user to enter each 
+     * citizen's phone number and their answer (Y for Yes, N for No, S for Sometimes). 
+     * The program must then prompt the user to enter a phone number, and it will search 
+     * and display the answer that was given at this phone number. 
+     * The program must also validate data input and accept only the 
+     * values Y, N, or S as an answer.
+     */
+    
+    int i, j, position_i, position_j;
+    boolean found;
+    String needle;
+    
+    String[][] tels = new String [CITIES][CITIZENS];
+    String[][] answer = new String[CITIES][CITIZENS];
+    for (i = 0; i <= CITIES - 1; i++) {
+      System.out.println("For city No " + (i + 1) + ": ");
+      for (j = 0; j <= CITIZENS - 1; j++) {
+        System.out.println("Enter the telephone number of Citizen number " + (j + 1) + ": ");
+        tels[i][j] = cin.nextLine();
+        
+        System.out.print("Do they exercise? (Y for Yes, N for No, S for Sometimes)");
+        answer[i][j] = cin.nextLine().toUpperCase();
+        while (!answer[i][j].equals("Y") && !answer[i][j].equals("N") && !answer[i][j].equals("S")) {
+          System.out.println("Invalid Response.  Do they exercise? (Y for Yes, N for No, S for Sometimes)");
+          answer[i][j] = cin.nextLine().toUpperCase();
+        }
+      }
+    }
+    
+    System.out.println("Enter a telephone number to search: ");
+    needle = cin.nextLine();
+    found = false;
+    position_i = -1; // keep row index where needle was found
+    position_j = -1; // keep column index where needle was found
+    for (i = 0; i <= CITIES - 1; i++) {
+      for (j = 0; j <= CITIZENS - 1; j++) {
+        if (tels[i][j].equals(needle)) {
+          found = true;
+          position_i = i;
+          position_j = j;
+          break; // exit the inner loop
+        }
+      }
+      if (found) {
+        break; // if found exit the outer loop too
+      }
+    }
+    if (!found) {
+      System.out.println("Phone number not found!");
+    }
+    else {
+      System.out.print("Phone Number " + tels[position_i][position_j] + " gave '");
+      
+      switch (answer[position_i][position_j]) {
+        case "Y":
+          System.out.print("Yes");
+          break;
+        case "N":
+          System.out.print("No");
+          break;
+        default:
+          System.out.print("Sometimes");            
+      }
+      System.out.print("' as an answer");
+    }
+    
+    
+  
+   }
+}
