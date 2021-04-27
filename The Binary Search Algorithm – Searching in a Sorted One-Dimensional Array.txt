@@ -1,0 +1,52 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ELEMENTS = 20;
+
+  
+  public static void main(String[] args) {
+    /*
+     * Write a code fragment that searches a sorted 
+     * one-dimensional array for a given value. 
+     * Use the binary search algorithm.
+     */
+    int i, left, right, middle, index_position = -1;
+    boolean found;
+    double needle;
+    
+    System.out.print("Enter a value to search: ");
+    needle = Double.parseDouble(cin.nextLine());
+    
+    double[] haystack = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    left = 0; 
+    right = ELEMENTS - 1;
+    found = false;
+    while (left <= right && !found) {
+      middle = (int)((left + right) / 2); // DIV 2 operation - middle would become 10 in a 20 element array
+      if (haystack[middle] > needle) {
+        right = middle - 1; // if needle was eg 7, then right = 9 and left stays as 0
+      }
+      else if (haystack[middle] < needle) {
+        left = middle + 1; // if needle was 13 for eg then left = 11 and right stays as 20
+      }
+      else { // haystack[middle] must be equal to needle
+        found = true;
+        index_position = middle;
+      }
+    }
+    
+    if (!found) {
+      System.out.println("Nothing found");
+    }
+    else {
+      System.out.println(needle + " found at position: " + index_position);
+    }
+    
+    
+  
+   }
+}
