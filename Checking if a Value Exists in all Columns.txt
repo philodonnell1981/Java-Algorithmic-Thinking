@@ -1,0 +1,62 @@
+package testingProject;
+
+import java.util.*;
+
+public class MainClass {
+  
+  static Scanner cin = new Scanner (System.in);
+  static final int ROWS = 20;
+  static final int COLS = 30;
+
+  
+  public static void main(String[] args) {
+    /*
+     * Write a Java program that lets the user enter numeric 
+     * values into a 20 × 30 array. After all of the values have been entered, 
+     * the program then lets the user enter a value. 
+     * In the end, a message must be displayed if the given value exists, 
+     * at least once, in each column of the array.
+     */
+    
+    int i, j, count;
+    boolean found;
+    double needle;
+    
+    double[][] haystack = new double[ROWS][COLS];
+    for (i = 0; i <= ROWS - 1; i++) {
+      for (j = 0; j <= COLS - 1; j++) {
+        haystack[i][j] = Double.parseDouble(cin.nextLine());
+      }
+    }
+    
+    System.out.print("Enter a value to search: ");
+    needle = Double.parseDouble(cin.nextLine());
+    
+    count = 0;
+    for (j = 0; j <= COLS - 1; j++) {
+      found = false;
+      for (i = 0; i <= ROWS - 1; i++ ) {
+        if (haystack[i][j] == needle) {
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        count++;
+      }
+      else {
+        break;
+      }
+    }
+    
+    if (count == COLS) {
+      System.out.println(needle + " found in every column");
+    }
+    
+    
+    
+    
+    
+  
+   }
+}
